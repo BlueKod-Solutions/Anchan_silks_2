@@ -42,8 +42,9 @@ export default function BridalPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-cream-50">
+    <>
       <Navbar />
+    <main className="min-h-screen bg-cream-50 pt-16">
 
       {/* Hero Section with Image & Content Overlay */}
       <div className="relative h-screen md:h-[600px] overflow-hidden">
@@ -317,5 +318,6 @@ export default function BridalPage() {
       <Footer />
       <WhatsAppFloat />
     </main>
+    </>
   );
 }

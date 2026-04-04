@@ -12,17 +12,20 @@ import WhatsAppFloat   from '@/components/shared/WhatsAppFloat';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
-      <Navbar />
+  <>
+    <Navbar />
+
+    <main className="min-h-screen pt-16">
       <HeroSection />
       <MarqueeSection />
       <CategoriesSection />
       <BridalSpotlight />
       <LegacySection />
       <WhyUsSection />
-      <VisitStrip />
+      {/* <VisitStrip /> */}
       <Footer />
       <WhatsAppFloat />
     </main>
-  );
+  </>
+);
 }

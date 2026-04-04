@@ -40,8 +40,9 @@ export default function CollectionsPage() {
     : products.filter((p) => p.category === active);
 
   return (
-    <main className="min-h-screen bg-cream-50">
+    <>
       <Navbar />
+    <main className="min-h-screen bg-cream-50 pt-16">
 
       {/* Page header */}
       <div className="pt-32 md:pt-40 pb-16 bg-gradient-to-br from-maroon-950 via-maroon-900 to-maroon-800 relative overflow-hidden">
@@ -126,5 +127,6 @@ export default function CollectionsPage() {
       <Footer />
       <WhatsAppFloat />
     </main>
+    </>
   );
 }

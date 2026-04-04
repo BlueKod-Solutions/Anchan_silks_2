@@ -37,7 +37,7 @@ export default function HeroSection() {
   const locale = useLocale();
 
   return (
-    <section className="relative min-h-screen pt-24 flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen py-32 pt-50 flex items-center justify-center overflow-hidden">
 
       {/* Video background */}
       <div className="absolute inset-0 z-0">

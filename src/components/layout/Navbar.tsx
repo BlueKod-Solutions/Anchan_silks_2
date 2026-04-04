@@ -57,21 +57,6 @@ export default function Navbar() {
           : 'bg-transparent'
       )}
     >
-      {/* Top bar */}
-      <div className="bg-maroon-900 text-cream-50 text-xs py-1.5 px-4 flex justify-between items-center">
-        <span className="hidden sm:block">
-          📍 Bypass Road, Bantwal, Dakshina Kannada
-        </span>
-        <div className="flex items-center gap-4 ml-auto">
-          <a
-            href={`tel:${siteConfig.phone.main}`}
-            className="flex items-center gap-1 hover:text-gold-300 transition-colors"
-          >
-            <Phone size={11} />
-            {siteConfig.phone.mainDisplay}
-          </a>
-        </div>
-      </div>
 
       {/* Main nav */}
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
