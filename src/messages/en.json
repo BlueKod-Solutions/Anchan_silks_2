@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Home",
+    "bridal": "Bridal",
+    "collections": "Collections",
+    "about": "About Us",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "visitUs": "Visit Us"
+  },
+  "hero": {
+    "tagline": "Bantwal's Most Trusted",
+    "headline": "Bridal & Silk Destination",
+    "subheadline": "Exquisite sarees, timeless traditions — curated for the most special moments of your life.",
+    "cta": "Explore Collections",
+    "ctaSecondary": "Enquire on WhatsApp"
+  },
+  "marquee": {
+    "text": "Pure Silk Sarees ✦ Bridal Brocades ✦ Kanchipuram Silks ✦ Banarasi Sarees ✦ Mysore Silks ✦ Wedding Collections ✦ Since 1999 ✦ Bantwal's Most Trusted ✦"
+  },
+  "categories": {
+    "title": "Our Collections",
+    "subtitle": "From exquisite bridal silks to contemporary fashion — everything under one roof",
+    "bridal": "Bridal Sarees",
+    "womens": "Women's Wear",
+    "mens": "Men's Wear",
+    "trending": "Trending & Western",
+    "accessories": "Lifestyle & Accessories",
+    "viewAll": "View All",
+    "enquire": "Enquire on WhatsApp"
+  },
+  "bridal": {
+    "title": "Bridal Spotlight",
+    "subtitle": "Every bride deserves to feel like royalty. Our bridal collection is a testament to that belief.",
+    "badge": "Signature Collection"
+  },
+  "legacy": {
+    "title": "A Legacy of Trust",
+    "subtitle": "Three decades of serving brides across Dakshina Kannada",
+    "year1999": "Est. 1999",
+    "year1999desc": "Anchan Garments opens on Market Road, Bantwal",
+    "year2007": "2007",
+    "year2007desc": "Moved into our own building — a milestone of growth",
+    "year2024": "2024",
+    "year2024desc": "Anchan Silks opens at Bypass — a grand destination store",
+    "stat1": "25+",
+    "stat1label": "Years of Trust",
+    "stat2": "1000+",
+    "stat2label": "Happy Brides",
+    "stat3": "2",
+    "stat3label": "Stores",
+    "stat4": "1005+",
+    "stat4label": "Children Supported"
+  },
+  "why": {
+    "title": "Why Choose Anchan Silks?",
+    "item1title": "Direct from Manufacturer",
+    "item1desc": "We source directly from weavers — ensuring authentic quality at the best prices.",
+    "item2title": "25 Years of Trust",
+    "item2desc": "Families across Dakshina Kannada have trusted us for their most precious occasions.",
+    "item3title": "Vast Collection",
+    "item3desc": "Bridal sarees, ready-made garments, jewellery and footwear — all under one roof.",
+    "item4title": "Social Commitment",
+    "item4desc": "A portion of every sale supports Sri Durga Charitable Trust and local schools."
+  },
+  "about": {
+    "title": "Our Story",
+    "subtitle": "A journey of trust, quality, and community",
+    "story1": "Anchan Garments was established in 1999 on Market Road in Bantwal. With the grace of God, the blessings of our Gurus, and the unwavering support of our valued customers, the business steadily grew to greater heights.",
+    "story2": "Over time, it became widely recognized as a trusted destination for wedding sarees at affordable prices across Bantwal Taluk. In 2007, the store moved into its own building, further strengthening its presence.",
+    "story3": "Continuing this journey, in 2024, we proudly launched Anchan Silks at the Bantwal bypass — a large-format store bringing together an extensive collection under one roof.",
+    "socialTitle": "Our Social Commitment",
+    "social1": "Since 1999, a portion of our earnings has been dedicated to supporting religious, social, and government educational institutions.",
+    "social2": "We established the Sri Durga Charitable Trust and took leadership in developing Daddala Kadu Government School — the very school where we once studied.",
+    "social3": "With the collective efforts of our team and supporters, the school now provides quality education to over 1,005 children.",
+    "trustTitle": "Sri Durga Charitable Trust",
+    "ownerQuote": "We firmly believe that equal education should be accessible to all. We humbly seek the continued love, trust, and support of our cherished customers.",
+    "ownerName": "Prakash Anchan",
+    "ownerTitle": "Founder & Owner, Anchan Silks"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "A glimpse into our world of silk and celebrations",
+    "videoTitle": "Step Inside Anchan Silks",
+    "videoSubtitle": "Take a virtual tour of our store at Bypass, Bantwal"
+  },
+  "contact": {
+    "title": "Visit Us",
+    "subtitle": "We'd love to welcome you to our stores",
+    "mainStore": "Anchan Silks — Main Store",
+    "mainAddress": "Bypass Road, Bantwal, Dakshina Kannada, Karnataka — 574219",
+    "subStore": "Anchan Garments — Branch",
+    "subAddress": "Market Road, Bantwal, Dakshina Kannada, Karnataka",
+    "hours": "Store Hours",
+    "weekdays": "Monday – Saturday",
+    "weekdayTime": "9:00 AM – 7:00 PM",
+    "sunday": "Sunday",
+    "sundayTime": "9:00 AM – 4:00 PM",
+    "callUs": "Call Us",
+    "whatsapp": "Chat on WhatsApp",
+    "formTitle": "Send us a Message",
+    "formName": "Your Name",
+    "formPhone": "Phone Number",
+    "formMessage": "Message",
+    "formSend": "Send Message",
+    "formSuccess": "Thank you! We will get back to you shortly.",
+    "formError": "Something went wrong. Please call us directly.",
+    "getDirections": "Get Directions",
+    "ownerTitle": "Meet Our Owner",
+    "ownerName": "Founder & Visionary",
+    "ownerQuote": "We believe in more than just selling sarees — we believe in preserving the art of silk and creating memories for every bride who walks through our doors. For over 25 years, our commitment has been to offer only the finest quality at prices you can trust.",
+    "ownerMessage": "Every piece you choose from Anchan Silks carries our dedication to excellence, tradition, and your happiness."
+  },
+  "footer": {
+    "tagline": "Bantwal's Most Trusted Silk & Bridal Destination Since 1999",
+    "quickLinks": "Quick Links",
+    "collections": "Collections",
+    "followUs": "Follow Us",
+    "rights": "© 2026 Anchan Silks. All rights reserved.",
+    "madeWith": "Crafted with ❤️ From <link>BlueKod</link> in Bantwal"
+  },
+  "collections": {
+    "title": "Our Collections",
+    "subtitle": "Discover our curated range of silk sarees, ethnic wear, and contemporary fashion",
+    "all": "All",
+    "enquireBtn": "Enquire on WhatsApp",
+    "filterLabel": "Filter by Category"
+  }
+}

@@ -1,0 +1,136 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        maroon: {
+          50:  '#fdf2f4',
+          100: '#fce7eb',
+          200: '#f9d0d8',
+          300: '#f4a8b8',
+          400: '#ec7492',
+          500: '#e04470',
+          600: '#cc2454',
+          700: '#ac1843',
+          800: '#8f163b',
+          900: '#6B1B2A',
+          950: '#3d0915',
+        },
+        gold: {
+          50:  '#fdf9ed',
+          100: '#f9f0cf',
+          200: '#f2de9a',
+          300: '#eac965',
+          400: '#e3b43e',
+          500: '#C9A84C',
+          600: '#b8891e',
+          700: '#97691a',
+          800: '#7d531b',
+          900: '#69451b',
+          950: '#3c240c',
+        },
+        cream: {
+          50:  '#FAF6F0',
+          100: '#f5ede0',
+          200: '#ead9c0',
+          300: '#dcc09a',
+          400: '#cba173',
+          500: '#be8756',
+          600: '#b17148',
+          700: '#935b3d',
+          800: '#764b36',
+          900: '#5f3f2f',
+        },
+      },
+      fontFamily: {
+        serif:  ['Cormorant Garamond', 'Georgia', 'serif'],
+        sans:   ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        kannada:['Noto Sans Kannada', 'sans-serif'],
+      },
+      backgroundImage: {
+        'silk-pattern': "url('/images/silk-texture.svg')",
+      },
+      animation: {
+        'marquee':      'marquee 30s linear infinite',
+        'fade-up':      'fadeUp 0.8s ease forwards',
+        'fade-in':      'fadeIn 1s ease forwards',
+        'shimmer':      'shimmer 2s infinite',
+        'fade-in-up':   'fadeInUp 0.7s ease forwards',
+        'fade-in-down': 'fadeInDown 0.7s ease forwards',
+        'fade-in-left': 'fadeInLeft 0.8s ease forwards',
+        'fade-in-right': 'fadeInRight 0.8s ease forwards',
+        'slide-up':     'slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+        'scale-in':     'scaleIn 0.6s ease forwards',
+        'glow-pulse':   'glowPulse 3s ease-in-out infinite',
+      },
+      animationDelay: {
+        '0': '0ms',
+        '50': '50ms',
+        '100': '100ms',
+        '150': '150ms',
+        '200': '200ms',
+        '250': '250ms',
+        '300': '300ms',
+        '350': '350ms',
+        '400': '400ms',
+        '450': '450ms',
+        '500': '500ms',
+        '600': '600ms',
+        '700': '700ms',
+        '800': '800ms',
+      },
+      keyframes: {
+        marquee: {
+          '0%':   { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        fadeUp: {
+          '0%':   { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeIn: {
+          '0%':   { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeInUp: {
+          '0%':   { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeInDown: {
+          '0%':   { opacity: '0', transform: 'translateY(-20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeInLeft: {
+          '0%':   { opacity: '0', transform: 'translateX(-30px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        fadeInRight: {
+          '0%':   { opacity: '0', transform: 'translateX(30px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        slideUp: {
+          '0%':   { opacity: '0', transform: 'translateY(40px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        scaleIn: {
+          '0%':   { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        shimmer: {
+          '0%':   { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        glowPulse: {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(201, 168, 76, 0.3)' },
+          '50%':      { boxShadow: '0 0 40px rgba(201, 168, 76, 0.6)' },
+        },
+      },
+    },
+  },
+  plugins: [],
+};
