@@ -46,6 +46,18 @@ module.exports = {
           800: '#764b36',
           900: '#5f3f2f',
         },
+        charcoal: {
+          50:  '#f7f7f7',
+          100: '#e5e5e5',
+          200: '#d4d4d8',
+          300: '#a1a1aa',
+          400: '#71717a',
+          500: '#52525b',
+          600: '#3f3f46',
+          700: '#27272a',
+          800: '#18181b',
+          900: '#09090b',
+        },
       },
       fontFamily: {
         serif:  ['Cormorant Garamond', 'Georgia', 'serif'],
