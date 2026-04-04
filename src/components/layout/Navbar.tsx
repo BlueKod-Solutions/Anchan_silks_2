@@ -59,14 +59,20 @@ export default function Navbar() {
         {/* 1. Left Section: Logo (Moves left) */}
         <div className="flex justify-start">
           <Link href={`/${locale}`} className="flex items-center gap-3 group">
-            <div className="relative w-12 h-12 lg:w-16 lg:h-16 transition-transform duration-300 group-hover:scale-110">
-              <Image src="/images/logo.png" alt="Anchan Silks" fill className="object-contain" />
+            <div className="relative group/logo">
+              {/* Decorative glow background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gold-500 via-gold-400 to-gold-600 rounded-lg blur-md opacity-30 group-hover/logo:opacity-50 transition-opacity duration-300" />
+              
+              {/* Logo container */}
+              <div className="relative w-12 h-12 lg:w-14 lg:h-14 rounded-lg bg-gradient-to-br from-maroon-800 to-maroon-900 border-2 border-gold-400 transition-transform duration-300 group-hover:scale-110 flex items-center justify-center p-1">
+                <Image src="/images/logo.png" alt="Anchan Silks" fill className="object-contain" />
+              </div>
             </div>
             <div className="hidden sm:block">
-              <p className="font-serif font-bold leading-none text-gold-400 text-lg lg:text-xl tracking-wide whitespace-nowrap">
+              <p className="font-serif font-bold leading-none text-gold-300 text-lg lg:text-xl tracking-wide whitespace-nowrap">
                 ANCHAN SILKS
               </p>
-              <p className="text-[10px] text-gold-300 font-semibold tracking-widest uppercase">Est. 1999</p>
+              <p className="text-[10px] text-gold-400 font-semibold tracking-widest uppercase">Est. 1999</p>
             </div>
           </Link>
         </div>
