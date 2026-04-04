@@ -79,10 +79,7 @@ export default function Navbar() {
         <Link href={`/${locale}`} className="flex items-center gap-3">
           <div className="relative w-10 h-10">
             {/* Replace with actual logo */}
-            <div className="w-10 h-10 bg-maroon-900 flex items-center justify-center text-gold-400 font-serif text-lg font-bold">
-              A
-            </div>
-            
+           
             <Image src="/images/logo.png" alt="Anchan Silks" fill className="object-contain" />
            
           </div>
