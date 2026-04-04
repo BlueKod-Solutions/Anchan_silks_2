@@ -44,7 +44,7 @@ export default function BridalPage() {
   return (
     <>
       <Navbar />
-    <main className="min-h-screen bg-cream-50 pt-16">
+    <main className="min-h-screen bg-cream-50 pt-20">
 
       {/* Hero Section with Image & Content Overlay */}
       <div className="relative h-screen md:h-[600px] overflow-hidden">
@@ -244,7 +244,7 @@ export default function BridalPage() {
               </span>
               <h2 className="font-serif text-4xl md:text-5xl text-maroon-900 mb-6 leading-tight">
                 {locale === 'kn' 
-                  ? 'ಪರಾಂಪರಿಕ ಕೌಶಲ್ಯ, ಆধುನಿಕ ಸೌಂದರ್ಯ'
+                  ? 'ಪಾರಂಪರಿಕ ಕೌಶಲ್ಯ, ಆಧುನಿಕ ಸೌಂದರ್ಯ'
                   : 'Three Decades of Bridal Excellence'
                 }
               </h2>

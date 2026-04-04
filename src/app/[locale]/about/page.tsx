@@ -23,7 +23,7 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-cream-50 pt-16">
+      <main className="min-h-screen bg-cream-50 pt-20">
 
         {/* Hero */}
         <div className="pt-32 md:pt-40 pb-20 bg-gradient-to-br from-maroon-950 via-maroon-900 to-maroon-800 relative overflow-hidden">

@@ -36,8 +36,10 @@ export default function CategoriesSection() {
           <p className="section-subtitle max-w-xl mx-auto">{t('subtitle')}</p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        {/* FIX: We use flex-wrap with justify-center. 
+          This ensures the 5th item centers itself when it drops to a new line.
+        */}
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
           {categoryOrder.map((cat, i) => {
             const meta = categoryMeta[cat];
             const isBridal = cat === 'bridal';
@@ -52,13 +54,22 @@ export default function CategoriesSection() {
                   transition-all duration-300
                   ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}
                   ${isBridal ? 'ring-1 ring-gold-400/30' : ''}
+                  
+                  /* RESPONSIVE WIDTHS */
+                  /* Mobile: 2 per row (approx 50%) */
+                  w-[calc(50%-8px)] 
+                  /* Tablet: 3 per row (approx 33%) */
+                  md:w-[calc(33.333%-16px)] 
+                  /* Desktop: 5 per row (approx 20%) */
+                  lg:w-[calc(20%-20px)]
+                  /* Minimum width to prevent squishing */
+                  min-w-[160px]
                 `}
                 style={{ animationDelay: `${i * 75}ms` }}
               >
 
                 {/* Image container */}
                 <div className="relative aspect-[4/5] overflow-hidden bg-cream-100">
-
                   <Image
                     src={categoryImages[cat]}
                     alt={meta.label}
@@ -71,7 +82,7 @@ export default function CategoriesSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-all duration-300" />
 
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
                     <div className="flex flex-col items-start gap-1">
 
                       {/* Premium divider */}
@@ -80,7 +91,7 @@ export default function CategoriesSection() {
                       {/* Title */}
                       <h3 className="
                         font-serif text-white 
-                        text-lg md:text-xl 
+                        text-base md:text-xl 
                         font-medium 
                         tracking-wide 
                         leading-snug
@@ -89,9 +100,9 @@ export default function CategoriesSection() {
                         {locale === 'kn' ? meta.labelKn : meta.label}
                       </h3>
 
-                      {/* Bridal description */}
+                      {/* Bridal description (Only on hover/desktop) */}
                       {isBridal && (
-                        <p className="text-cream-200 text-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p className="hidden md:block text-cream-200 text-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           {meta.description}
                         </p>
                       )}
@@ -99,7 +110,7 @@ export default function CategoriesSection() {
                       {/* CTA */}
                       <span className="
                         inline-flex items-center gap-1 
-                        text-gold-300 text-[11px] 
+                        text-gold-300 text-[10px] md:text-[11px] 
                         tracking-widest uppercase 
                         mt-2 opacity-0 group-hover:opacity-100 
                         translate-y-2 group-hover:translate-y-0 
@@ -113,7 +124,7 @@ export default function CategoriesSection() {
 
                   {/* Bridal badge */}
                   {isBridal && (
-                    <div className="absolute top-4 right-4 bg-gold-500 text-maroon-950 text-[10px] font-semibold px-3 py-1 tracking-widest uppercase">
+                    <div className="absolute top-4 right-4 bg-gold-500 text-maroon-950 text-[9px] md:text-[10px] font-bold px-2 py-1 md:px-3 tracking-widest uppercase shadow-lg">
                       Signature
                     </div>
                   )}

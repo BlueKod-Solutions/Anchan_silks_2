@@ -32,8 +32,8 @@ export default function LegacySection() {
     >
       {/* 👑 Large faded watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <h1 className="text-[120px] md:text-[220px] font-serif text-maroon-950/5 tracking-widest">
-          LEGACY
+        <h1 className="text-[120px] md:text-[220px] font-serif text-maroon-950/5 tracking-widest uppercase">
+          Legacy
         </h1>
       </div>
 
@@ -68,7 +68,6 @@ export default function LegacySection() {
 
         {/* Timeline */}
         <div className="relative">
-
           {/* Vertical line */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] 
           bg-gradient-to-b from-transparent via-gold-500 to-transparent opacity-70" />
@@ -92,6 +91,25 @@ export default function LegacySection() {
           {stats.map((stat, i) => (
             <StatItem key={i} stat={stat} />
           ))}
+        </div>
+
+        {/* 📜 FINAL QUOTE SECTION */}
+        <div className="mt-32 text-center">
+          <div className="inline-block relative">
+            <span className="block text-gold-600 text-3xl font-serif mb-4 opacity-40">“</span>
+            <p className="text-2xl md:text-3xl font-serif text-maroon-900 leading-relaxed italic max-w-3xl mx-auto">
+               Your trust is our heritage, and your grace is our greatest service.
+            </p>
+            <span className="block text-gold-600 text-3xl font-serif mt-2 opacity-40 text-right">”</span>
+            
+            {/* Sub-text signature */}
+            <div className="mt-8 flex flex-col items-center gap-2">
+               <div className="h-px w-12 bg-gold-500/50" />
+               <p className="text-xs tracking-[0.4em] uppercase text-gold-700 font-bold">
+                 Always at your service
+               </p>
+            </div>
+          </div>
         </div>
 
       </div>

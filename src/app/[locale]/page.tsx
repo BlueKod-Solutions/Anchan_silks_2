@@ -15,7 +15,7 @@ export default function HomePage() {
   <>
     <Navbar />
 
-    <main className="min-h-screen pt-16">
+    <main className="min-h-screen pt-20">
       <HeroSection />
       <MarqueeSection />
       <CategoriesSection />
