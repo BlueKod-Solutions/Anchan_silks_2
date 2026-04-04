@@ -10,6 +10,7 @@ import WhatsAppFloat from '@/components/shared/WhatsAppFloat';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { siteConfig } from '@/data/products';
 import { buildWhatsAppLink } from '@/lib/utils';
+import Image from "next/image";
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
@@ -217,59 +218,27 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Owner Quote Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-maroon-50 to-cream-50" ref={ownerRef}>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              {/* Owner Photo */}
-              <div className={`flex justify-center transition-all duration-500 ${ownerVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: ownerVisible ? '0ms' : '0ms' }}>
-                <div className="relative">
-                  {/* Photo Frame */}
-                  <div className="border-8 border-gold-400 shadow-2xl overflow-hidden max-w-sm">
-                    <img
-                      src="/images/Anchan_Owner.jpeg"
-                      alt="Owner"
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                  {/* Decorative corner element */}
-                  <div className="absolute -top-6 -right-6 w-32 h-32 border-4 border-maroon-200 pointer-events-none hidden lg:block" />
-                  <div className="absolute -bottom-6 -left-6 w-24 h-24 border-4 border-gold-200 pointer-events-none hidden lg:block" />
-                </div>
+        {/* Owner Quote */}
+        <section className="py-20 bg-maroon-950 relative overflow-hidden">
+          <div className="absolute inset-0 silk-texture opacity-10" />
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+            <span className="text-gold-400 text-6xl font-serif leading-none animate-scale-in">&quot;</span>
+            <blockquote className="font-serif text-2xl md:text-3xl text-white leading-relaxed mt-4 mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+              {t('ownerQuote')}
+            </blockquote>
+            <div className="flex items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              {/* Owner photo placeholder */}
+              <div className="w-14 h-14 relative rounded-full overflow-hidden border-2 border-gold-500/30">
+                <Image
+                  src="/images/store/Anchan_Owner.jpeg"
+                  alt="Prakash Anchan"
+                  fill
+                  className="object-cover"
+                />
               </div>
-
-              {/* Owner Quote & Message */}
-              <div className={`transition-all duration-500 ${ownerVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: ownerVisible ? '0.2s' : '0ms' }}>
-                <div className="flex items-center gap-3 mb-6 animate-fade-in-up" style={{ animationDelay: ownerVisible ? '0.3s' : '0ms' }}>
-                  <span className="h-px w-8 bg-gold-500" />
-                  <p className="text-gold-600 text-xs font-semibold tracking-[0.2em] uppercase">{t('ownerTitle')}</p>
-                </div>
-
-                <h2 className="font-serif text-3xl md:text-4xl text-maroon-950 mb-4 leading-tight animate-fade-in-up" style={{ animationDelay: ownerVisible ? '0.4s' : '0ms' }}>
-                  A Message from Our Founder
-                </h2>
-
-                {/* Quote */}
-                <div className="mb-8 animate-fade-in-up" style={{ animationDelay: ownerVisible ? '0.5s' : '0ms' }}>
-                  <p className="text-lg md:text-xl text-maroon-900 leading-relaxed italic font-light flex items-start gap-3">
-                    <span className="text-4xl text-gold-500 leading-none flex-shrink-0 mt-1">&quot;</span>
-                    <span>{t('ownerQuote')}</span>
-                  </p>
-                </div>
-
-                {/* Message */}
-                <p className="text-base text-charcoal mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: ownerVisible ? '0.6s' : '0ms' }}>
-                  {t('ownerMessage')}
-                </p>
-
-                {/* Signature style */}
-                <div className="animate-fade-in-up" style={{ animationDelay: ownerVisible ? '0.7s' : '0ms' }}>
-                  <div className="border-t border-gold-300 pt-6 w-48">
-                    <p className="font-serif text-lg text-gold-600 font-semibold">PRAKASH ANCHAN</p>
-                    <p className="font-serif text-lg text-maroon-950 font-semibold">Founder & Visionary</p>
-                    <p className="text-sm text-charcoal">Anchan Silks</p>
-                  </div>
-                </div>
+              <div className="text-left">
+                <p className="text-gold-400 font-semibold">{t('ownerName')}</p>
+                <p className="text-cream-400 text-sm">{t('ownerTitle')}</p>
               </div>
             </div>
           </div>
