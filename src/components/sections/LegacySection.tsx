@@ -1,7 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import TimelineItem from '../TimelineItem';
+import StatItem from '../StatItem';
 
 const milestones = [
   { yearKey: 'year1999', descKey: 'year1999desc', decade: '1999' },
@@ -11,7 +12,6 @@ const milestones = [
 
 export default function LegacySection() {
   const t = useTranslations('legacy');
-  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   const stats = [
     { value: t('stat1'), label: t('stat1label') },
@@ -22,83 +22,78 @@ export default function LegacySection() {
 
   return (
     <section
-      ref={ref}
-      className="relative py-32 overflow-hidden"
+      className="relative py-36 overflow-hidden"
       style={{
-        background: 'linear-gradient(90deg, #EFE6DA 0%, #F7F1E8 100%)'
+        background: `
+          radial-gradient(circle at top, rgba(212,175,55,0.15), transparent 40%),
+          linear-gradient(90deg, #EFE6DA 0%, #F7F1E8 100%)
+        `
       }}
     >
-      {/* Top separator */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent" />
+      {/* 👑 Large faded watermark */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <h1 className="text-[120px] md:text-[220px] font-serif text-maroon-950/5 tracking-widest">
+          LEGACY
+        </h1>
+      </div>
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ✨ Decorative radial glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] 
+      bg-gold-400/10 blur-3xl rounded-full pointer-events-none" />
+
+      {/* Top separator */}
+      <div className="absolute top-0 left-0 right-0 h-px 
+      bg-gradient-to-r from-transparent via-gold-400/40 to-transparent" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className={`text-center mb-24 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-6'}`}>
-          <h2 className="text-4xl md:text-5xl font-serif text-maroon-950 mb-4">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-maroon-950 mb-6 tracking-wide">
             {t('title')}
           </h2>
-          <p className="text-sm italic text-[#8A6040] max-w-md mx-auto">
-            {t('subtitle')}
+
+          {/* ✨ Minimal emotional line */}
+          <p className="text-base italic text-[#8A6040] max-w-xl mx-auto leading-relaxed">
+            A journey of trust, tradition, and timeless elegance.
           </p>
+        </div>
+
+        {/* 👑 Decorative divider */}
+        <div className="flex items-center justify-center mb-24">
+          <div className="w-24 h-px bg-gold-400/50" />
+          <div className="mx-4 w-2 h-2 rounded-full bg-gold-500" />
+          <div className="w-24 h-px bg-gold-400/50" />
         </div>
 
         {/* Timeline */}
         <div className="relative">
 
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gold-500/50" />
+          {/* Vertical line */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] 
+          bg-gradient-to-b from-transparent via-gold-500 to-transparent opacity-70" />
 
-          <div className="space-y-20">
+          <div className="space-y-28">
             {milestones.map((m, i) => (
-              <div
-                key={m.yearKey}
-                className={`flex flex-col md:flex-row items-center gap-10 ${
-                  i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
-              >
-
-                {/* Card */}
-                <div className="md:w-5/12">
-                  <div className="p-8 bg-white shadow-xl transition hover:-translate-y-1"
-                    style={{ border: '1px solid rgba(212,175,55,0.3)' }}
-                  >
-                    <p className="text-xs tracking-widest text-gold-500 mb-3 uppercase">
-                      {t(m.yearKey as any)}
-                    </p>
-                    <p className="text-lg font-serif text-maroon-950 leading-snug">
-                      {t(m.descKey as any)}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Center circle */}
-                <div className="md:w-2/12 flex justify-center">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center bg-white border-2 border-gold-500 shadow-lg">
-                    <span className="text-sm font-serif text-maroon-950">
-                      {m.decade}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="md:w-5/12" />
-              </div>
+              <TimelineItem key={m.yearKey} m={m} i={i} t={t} />
             ))}
           </div>
         </div>
 
+        {/* ✨ Section Divider */}
+        <div className="flex items-center justify-center mt-32 mb-12">
+          <div className="w-16 h-px bg-gold-400/40" />
+          <div className="mx-3 w-1.5 h-1.5 rounded-full bg-gold-500" />
+          <div className="w-16 h-px bg-gold-400/40" />
+        </div>
+
         {/* Stats */}
-        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((stat) => (
-            <div className="text-center p-6 bg-white shadow-md hover:shadow-xl transition border border-gold-400/20">
-              <p className="text-3xl font-serif text-maroon-950 mb-2">
-                {stat.value}
-              </p>
-              <p className="text-xs uppercase tracking-widest text-gold-500">
-                {stat.label}
-              </p>
-            </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, i) => (
+            <StatItem key={i} stat={stat} />
           ))}
         </div>
+
       </div>
     </section>
   );
