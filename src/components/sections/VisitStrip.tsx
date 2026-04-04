@@ -1,6 +1,5 @@
 'use client';
 
-import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { MapPin, Phone, Clock } from 'lucide-react';
@@ -12,53 +11,99 @@ export default function VisitStrip() {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   return (
-    <section className="bg-gradient-to-r from-maroon-950 via-maroon-900 to-maroon-800 py-16" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left transition-opacity duration-500 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: isVisible ? '0ms' : '0ms' }}>
-          {/* Address */}
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
-            <div className="w-12 h-12 shrink-0 border border-gold-500/30 flex items-center justify-center">
+    <section
+      ref={ref}
+      className="relative py-24 overflow-hidden"
+      style={{
+        background:
+          'linear-gradient(135deg, #3D0A14 0%, #5A0D1F 40%, #2A0A14 100%)'
+      }}
+    >
+      {/* TOP GOLD LINE */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/70 to-transparent" />
+
+      {/* SOFT GLOW */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.1),transparent_60%)]" />
+
+      {/* BOTTOM SEPARATOR (KEY FIX) */}
+      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent via-[#2A0A14] to-[#1A060F]" />
+
+      {/* INNER CONTENT */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div
+          className={`
+          grid grid-cols-1 md:grid-cols-3 gap-12 items-center
+          transition-all duration-700
+          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
+        `}
+        >
+
+          {/* ADDRESS */}
+          <div className="group flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left">
+
+            <div className="w-14 h-14 border border-gold-500/40 flex items-center justify-center bg-white/5 backdrop-blur-sm group-hover:scale-105 transition shadow-[0_0_20px_rgba(212,175,55,0.1)]">
               <MapPin className="text-gold-400" size={20} />
             </div>
+
             <div>
-              <p className="text-gold-400 text-xs font-semibold uppercase tracking-widest mb-1">{t('mainStore')}</p>
-              <p className="text-cream-200 text-sm leading-relaxed">{siteConfig.address.main}</p>
+              <p className="text-[11px] tracking-[0.35em] uppercase text-gold-400 mb-2">
+                {t('mainStore')}
+              </p>
+              <p className="text-cream-200 text-sm leading-relaxed max-w-xs">
+                {siteConfig.address.main}
+              </p>
             </div>
           </div>
 
-          {/* Hours */}
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
-            <div className="w-12 h-12 shrink-0 border border-gold-500/30 flex items-center justify-center">
+          {/* HOURS */}
+          <div className="group flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left">
+
+            <div className="w-14 h-14 border border-gold-500/40 flex items-center justify-center bg-white/5 backdrop-blur-sm group-hover:scale-105 transition shadow-[0_0_20px_rgba(212,175,55,0.1)]">
               <Clock className="text-gold-400" size={20} />
             </div>
+
             <div>
-              <p className="text-gold-400 text-xs font-semibold uppercase tracking-widest mb-1">{t('hours')}</p>
-              <p className="text-cream-200 text-sm">{t('weekdays')}: {t('weekdayTime')}</p>
-              <p className="text-cream-200 text-sm">{t('sunday')}: {t('sundayTime')}</p>
+              <p className="text-[11px] tracking-[0.35em] uppercase text-gold-400 mb-2">
+                {t('hours')}
+              </p>
+              <p className="text-cream-200 text-sm">
+                {t('weekdays')}: {t('weekdayTime')}
+              </p>
+              <p className="text-cream-200 text-sm">
+                {t('sunday')}: {t('sundayTime')}
+              </p>
             </div>
           </div>
 
           {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-end">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
+
+            {/* CALL BUTTON */}
             <a
               href={`tel:${siteConfig.phone.main}`}
-              className="inline-flex items-center gap-2 px-5 py-3 border border-cream-200/30 text-cream-100 text-sm font-medium hover:bg-white/10 transition-colors justify-center"
+              className="group relative px-7 py-3 text-[11px] tracking-[0.3em] uppercase border border-gold-500/40 text-gold-300 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
             >
-              <Phone size={16} />
-              {t('callUs')}
+              <span className="absolute inset-0 bg-gold-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              <span className="relative z-10 group-hover:text-maroon-950 transition">
+                {t('callUs')}
+              </span>
             </a>
+
+            {/* WHATSAPP BUTTON */}
             <a
               href={buildWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 bg-gold-500 text-maroon-950 text-sm font-bold hover:bg-gold-400 transition-colors justify-center"
+              className="group relative px-7 py-3 text-[11px] tracking-[0.3em] uppercase bg-gold-500 text-maroon-950 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-              {t('whatsapp')}
+              <span className="absolute inset-0 bg-gold-400 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              <span className="relative z-10">
+                {t('whatsapp')}
+              </span>
             </a>
           </div>
+
         </div>
       </div>
     </section>

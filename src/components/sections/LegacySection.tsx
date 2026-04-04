@@ -1,6 +1,5 @@
 'use client';
 
-import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
@@ -22,62 +21,65 @@ export default function LegacySection() {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden" ref={ref}>
-      {/* Background pattern */}
-      <div className="absolute right-0 top-0 w-1/2 h-full opacity-[0.03]"
-        style={{
-          backgroundImage: 'repeating-linear-gradient(45deg, #6B1B2A 0, #6B1B2A 1px, transparent 0, transparent 50%)',
-          backgroundSize: '20px 20px',
-        }}
-      />
+    <section
+      ref={ref}
+      className="relative py-32 overflow-hidden"
+      style={{
+        background: 'linear-gradient(90deg, #EFE6DA 0%, #F7F1E8 100%)'
+      }}
+    >
+      {/* Top separator */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <div className="text-center mb-20">
-          <div className="ornament-divider mb-6 max-w-xs mx-auto animate-fade-in-up">
-            <span className="text-gold-500 text-xl">✦</span>
-          </div>
-          <h2 className="section-title mb-4 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>{t('title')}</h2>
-          <p className="section-subtitle max-w-xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>{t('subtitle')}</p>
+        <div className={`text-center mb-24 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-6'}`}>
+          <h2 className="text-4xl md:text-5xl font-serif text-maroon-950 mb-4">
+            {t('title')}
+          </h2>
+          <p className="text-sm italic text-[#8A6040] max-w-md mx-auto">
+            {t('subtitle')}
+          </p>
         </div>
 
         {/* Timeline */}
         <div className="relative">
-          {/* Central line */}
-          <div className="hidden md:block absolute left-1/2 -translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-gold-200 via-gold-500 to-gold-200" />
 
-          <div className="space-y-16 md:space-y-0">
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gold-500/50" />
+
+          <div className="space-y-20">
             {milestones.map((m, i) => (
               <div
                 key={m.yearKey}
-                className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-0 transition-opacity duration-500 ${
+                className={`flex flex-col md:flex-row items-center gap-10 ${
                   i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                } ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-                style={{ animationDelay: isVisible ? `${i * 150}ms` : '0ms' }}
+                }`}
               >
-                {/* Content */}
-                <div className={`md:w-5/12 ${i % 2 === 0 ? 'md:text-right md:pr-16' : 'md:text-left md:pl-16'}`}>
-                  <div className={`inline-block bg-maroon-50 border border-maroon-100 p-6 ${i % 2 === 0 ? 'md:ml-auto' : ''} transition-all duration-300 hover:shadow-lg hover:-translate-y-1`}>
-                    <p className="text-gold-600 text-xs font-bold tracking-widest uppercase mb-2">
+
+                {/* Card */}
+                <div className="md:w-5/12">
+                  <div className="p-8 bg-white shadow-xl transition hover:-translate-y-1"
+                    style={{ border: '1px solid rgba(212,175,55,0.3)' }}
+                  >
+                    <p className="text-xs tracking-widest text-gold-500 mb-3 uppercase">
                       {t(m.yearKey as any)}
                     </p>
-                    <p className="text-maroon-900 font-serif text-lg leading-snug">
+                    <p className="text-lg font-serif text-maroon-950 leading-snug">
                       {t(m.descKey as any)}
                     </p>
                   </div>
                 </div>
 
-                {/* Center dot */}
+                {/* Center circle */}
                 <div className="md:w-2/12 flex justify-center">
-                  <div className="relative flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full border-2 border-gold-400 bg-white flex items-center justify-center z-10 animate-scale-in" style={{ animationDelay: `${i * 150 + 100}ms` }}>
-                      <span className="font-serif text-maroon-900 font-bold text-sm">{m.decade}</span>
-                    </div>
-                    <div className="absolute w-20 h-20 rounded-full border border-gold-200 animate-ping opacity-20" />
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center bg-white border-2 border-gold-500 shadow-lg">
+                    <span className="text-sm font-serif text-maroon-950">
+                      {m.decade}
+                    </span>
                   </div>
                 </div>
 
-                {/* Empty side */}
                 <div className="md:w-5/12" />
               </div>
             ))}
@@ -85,11 +87,15 @@ export default function LegacySection() {
         </div>
 
         {/* Stats */}
-        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-px bg-gold-100">
-          {stats.map((stat, i) => (
-            <div key={stat.label} className={`bg-white p-10 text-center transition-all duration-300 hover:shadow-md ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: isVisible ? `${500 + i * 80}ms` : '0ms' }}>
-              <p className="font-serif text-5xl text-maroon-900 font-semibold">{stat.value}</p>
-              <p className="text-muted text-sm mt-3 font-light tracking-wide">{stat.label}</p>
+        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6">
+          {stats.map((stat) => (
+            <div className="text-center p-6 bg-white shadow-md hover:shadow-xl transition border border-gold-400/20">
+              <p className="text-3xl font-serif text-maroon-950 mb-2">
+                {stat.value}
+              </p>
+              <p className="text-xs uppercase tracking-widest text-gold-500">
+                {stat.label}
+              </p>
             </div>
           ))}
         </div>
