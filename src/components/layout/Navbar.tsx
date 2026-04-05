@@ -103,11 +103,11 @@ export default function Navbar() {
         </ul>
 
         {/* 3. Right Section: Controls (Moves right) */}
-        <div className="flex items-center justify-end gap-3 lg:gap-4">
+        <div className="flex items-center justify-end gap-2 lg:gap-3">
           {/* Language toggle */}
           <button
             onClick={switchLocale}
-            className="hidden sm:flex items-center gap-2 px-3 lg:px-4 py-2 border-2 border-gold-400 text-gold-300 text-[11px] font-semibold tracking-wide hover:bg-gold-400 hover:text-maroon-900 transition-all duration-300 rounded-lg"
+            className="hidden sm:flex items-center justify-center gap-1.5 px-3 lg:px-4 py-2.5 h-10 border-2 border-gold-400 text-gold-300 text-[11px] font-semibold tracking-wide hover:bg-gold-400 hover:text-maroon-900 transition-all duration-300 rounded-lg hover:shadow-lg"
             aria-label="Toggle language"
           >
             <Globe size={14} />
@@ -115,15 +115,15 @@ export default function Navbar() {
           </button>
 
           {/* WhatsApp CTA */}
-          <a
+          {/* <a
             href={`https://wa.me/${siteConfig.whatsapp.number}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 px-4 lg:px-5 py-2 bg-gradient-to-r from-gold-400 to-gold-300 text-maroon-900 text-xs lg:text-sm font-bold hover:from-gold-300 hover:to-gold-200 transition-all duration-300 rounded-lg shadow-lg hover:scale-105 transform"
+            className="hidden sm:flex items-center justify-center gap-1.5 px-3 lg:px-4 py-2.5 h-10 bg-gradient-to-r from-green-500 to-green-400 text-white text-[11px] lg:text-xs font-bold hover:from-green-400 hover:to-green-300 transition-all duration-300 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform"
           >
             <MessageCircle size={16} />
             <span className="whitespace-nowrap">WhatsApp</span>
-          </a>
+          </a> */}
 
           {/* Mobile menu button */}
           <button

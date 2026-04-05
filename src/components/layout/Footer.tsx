@@ -33,7 +33,7 @@ export default function Footer() {
               <div className="relative group">
                 {/* Decorative ring background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-gold-500 via-gold-400 to-gold-600 rounded-lg blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-300" />
-                
+
                 {/* Logo container with border */}
                 <div className="relative w-20 h-20 rounded-lg bg-gradient-to-br from-maroon-800 to-maroon-900 border-2 border-gold-400 p-1.5 shadow-lg group-hover:shadow-xl transition-all duration-300 flex items-center justify-center">
                   <Image
@@ -49,7 +49,7 @@ export default function Footer() {
             {/* Brand Text */}
             <div className="text-center lg:text-left mb-8">
               <p className="font-serif text-2xl text-gold-300 tracking-wide font-bold">ANCHAN SILKS</p>
-              <p className="text-xs text-gold-400 tracking-widest uppercase font-semibold">Established 1999</p>
+              <p className="text-xs text-gold-400 tracking-widest uppercase font-semibold">EST.  1999</p>
             </div>
 
             <p className="text-cream-300 text-sm leading-relaxed mb-8">
@@ -62,7 +62,9 @@ export default function Footer() {
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 flex items-center justify-center border-2 border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-maroon-900 transition-all duration-300 rounded-lg shadow-md hover:shadow-lg"
+                  className="w-11 h-11 flex items-center justify-center transition-all duration-300 rounded-lg shadow-md hover:shadow-lg hover:scale-110"
+                      style={{ background: 'radial-gradient(circle at 30% 110%, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)' }}
+
                   aria-label="Instagram"
                 >
                   <Instagram size={18} />
@@ -83,7 +85,9 @@ export default function Footer() {
                 href={buildWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 flex items-center justify-center border-2 border-green-500 text-green-400 hover:bg-green-500 hover:text-white transition-all duration-300 rounded-lg shadow-md hover:shadow-lg"
+                className="w-11 h-11 flex items-center justify-center transition-all duration-300 rounded-lg shadow-md hover:shadow-lg hover:scale-110"
+                  style={{ background: '#25D366' }}
+
                 aria-label="WhatsApp"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
