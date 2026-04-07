@@ -4,8 +4,8 @@
 
 export type Category =
   | 'bridal'
-  | 'womens'
   | 'mens'
+  | 'womens'
   | 'trending'
   | 'accessories';
 
@@ -49,10 +49,10 @@ export const products: Product[] = [
   },
   {
     id: 'bridal-004',
-    name: 'Kanjivaram Silk Saree',
-    nameKn: 'ಕಂಜೀವರಂ ರೇಷ್ಮೆ ಸೀರೆ',
+    name: 'Mysore Silk Saree',
+    nameKn: 'ಮೈಸೂರು ರೇಷ್ಮೆ ಸೀರೆ',
     category: 'bridal',
-    image: '/images/bridal/kanjivaram-1.jpeg',
+    image: '/images/bridal/mysore_silk.png',
     featured: true,
   },
   {
@@ -60,7 +60,7 @@ export const products: Product[] = [
     name: 'Pure Silk Saree',
     nameKn: 'ಶುದ್ಧ ರೇಷ್ಮೆ ಸೀರೆ',
     category: 'bridal',
-    image: '/images/bridal/pure-silk-1.jpg',
+    image: '/images/bridal/pure_silk.jpeg',
     featured: true,
   },
   {
@@ -75,7 +75,7 @@ export const products: Product[] = [
     name: 'Banarasi Saree',
     nameKn: 'ಬನಾರಸಿ ಸೀರೆ',
     category: 'bridal',
-    image: '/images/bridal/banarasi-1.jpg',
+    image: '/images/bridal/banarasi-1.png',
     tag: 'New Arrival',
   },
   {
@@ -126,7 +126,7 @@ export const products: Product[] = [
     name: 'Anarkali Suit',
     nameKn: 'ಅನಾರ್ಕಲಿ ಸೂಟ್',
     category: 'womens',
-    image: '/images/womens/anarkali-1.jpg',
+    image: '/images/womens/anarkali-1.png',
     featured: true,
   },
   {
@@ -134,36 +134,30 @@ export const products: Product[] = [
     name: 'Chikankari Cotton Suit',
     nameKn: 'ಚಿಕನ್‌ಕಾರಿ ಹತ್ತಿ ಸೂಟ್',
     category: 'womens',
-    image: '/images/womens/chikankari-1.jpg',
+    image: '/images/womens/chikankari-1.jpeg',
   },
   {
     id: 'womens-003',
     name: 'Palazzo Set',
     nameKn: 'ಪಲಾಜ್ಜೋ ಸೆಟ್',
     category: 'womens',
-    image: '/images/womens/palazzo-1.jpg',
+    image: '/images/womens/palazzo-1.jpeg',
   },
   {
     id: 'womens-004',
     name: 'Sharara',
     nameKn: 'ಶರಾರ',
     category: 'womens',
-    image: '/images/womens/sharara-1.jpg',
+    image: '/images/womens/sharara-1.jpeg',
   },
-  {
-    id: 'womens-005',
-    name: 'Sharavani',
-    nameKn: 'ಶರವಾಣಿ',
-    category: 'womens',
-    image: '/images/womens/sharavani-1.jpg',
-  },
+
   // ── MEN'S WEAR ─────────────────────────────────────────────────────────────
   {
     id: 'mens-001',
     name: 'Jodhpuri Suit — Full Button',
     nameKn: 'ಜೋಧಪುರಿ ಸೂಟ್ — ಫುಲ್ ಬಟನ್',
     category: 'mens',
-    image: '/images/mens/jodhpuri-full-1.jpg',
+    image: '/images/mens/jodhpuri-full-1.jpeg',
     featured: true,
   },
   {
@@ -171,7 +165,7 @@ export const products: Product[] = [
     name: 'Jodhpuri Suit — Open Button',
     nameKn: 'ಜೋಧಪುರಿ ಸೂಟ್ — ಓಪನ್ ಬಟನ್',
     category: 'mens',
-    image: '/images/mens/jodhpuri-open-1.jpg',
+    image: '/images/mens/jodhpuri-open-1.jpeg',
   },
   {
     id: 'mens-003',
@@ -179,6 +173,13 @@ export const products: Product[] = [
     nameKn: 'ಫಾರ್ಮಲ್ ಸೂಟ್',
     category: 'mens',
     image: '/images/mens/formal-suit-1.jpg',
+  },
+    {
+    id: 'mens-004',
+    name: 'Sharavani',
+    nameKn: 'ಶರವಾಣಿ',
+    category: 'mens',
+    image: '/images/mens/sharavani-1.jpeg',
   },
   // ── TRENDING & WESTERN ─────────────────────────────────────────────────────
   {
@@ -194,14 +195,14 @@ export const products: Product[] = [
     name: 'Baggy Jeans',
     nameKn: 'ಬ್ಯಾಗಿ ಜೀನ್ಸ್',
     category: 'trending',
-    image: '/images/trending/baggy-jeans-1.jpg',
+    image: '/images/trending/baggy-jeans-1.jpeg',
   },
   {
     id: 'trending-003',
     name: 'Cargo Jeans',
     nameKn: 'ಕಾರ್ಗೋ ಜೀನ್ಸ್',
     category: 'trending',
-    image: '/images/trending/cargo-jeans-1.jpg',
+    image: '/images/trending/cargo-jeans-1.jfif',
   },
   {
     id: 'trending-004',
@@ -301,17 +302,18 @@ export const categoryMeta: Record<Category, { label: string; labelKn: string; ic
     icon: '🥻',
     description: 'Kanchipuram, Banarasi, Brocade & more — every bride\'s dream',
   },
-  womens: {
-    label: "Women's Wear",
-    labelKn: 'ಮಹಿಳಾ ಉಡುಪು',
-    icon: '👗',
-    description: 'Anarkali, Palazzo, Sharara & more ethnic wear',
-  },
+ 
   mens: {
     label: "Men's Wear",
     labelKn: 'ಪುರುಷ ಉಡುಪು',
     icon: '🤵',
     description: 'Jodhpuri suits & formal wear for every occasion',
+  },
+   womens: {
+    label: "Women's Wear",
+    labelKn: 'ಮಹಿಳಾ ಉಡುಪು',
+    icon: '👗',
+    description: 'Anarkali, Palazzo, Sharara & more ethnic wear',
   },
   trending: {
     label: 'Trending & Western',

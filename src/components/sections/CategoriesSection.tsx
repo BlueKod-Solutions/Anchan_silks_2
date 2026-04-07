@@ -9,14 +9,14 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { categoryMeta, type Category } from '@/data/products';
 
 const categoryImages: Record<Category, string> = {
-  bridal:      '/images/bridal/bridal-brocade-1.jpeg',
-  womens:      '/images/womens/anarkali-1.jpeg',
-  mens:        '/images/mens/jodhpuri-full-1.jpeg',
-  trending:    '/images/trending/bodycon-1.jpeg',
+  bridal: '/images/bridal/bridal-brocade-1.jpeg',
+  mens: '/images/mens/mens_wear.jpeg',
+  womens: '/images/womens/womens_wear.jpeg',
+  trending: '/images/trending/bodycon-1.png',
   accessories: '/images/accessories/gold-jewelry-1.jpg',
 };
 
-const categoryOrder: Category[] = ['bridal', 'womens', 'mens', 'trending', 'accessories'];
+const categoryOrder: Category[] = ['bridal', 'mens', 'womens', 'trending', 'accessories'];
 
 export default function CategoriesSection() {
   const t = useTranslations('categories');
