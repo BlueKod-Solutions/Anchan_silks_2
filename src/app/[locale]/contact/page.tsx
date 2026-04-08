@@ -112,26 +112,22 @@ export default function ContactPage() {
       <main className="min-h-screen bg-white pt-20">
 
         {/* HERO SECTION */}
-        <div className="relative h-[60vh] md:h-[70vh] overflow-hidden bg-black">
-          <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=85"
-            alt="Contact"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
-          
-          <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4">
-            <p className="font-sans text-sm text-gold-400 tracking-[0.4em] uppercase mb-6 animate-fade-in-up">
-              {t('title')}
-            </p>
-            
-            <h1 className="text-5xl md:text-7xl text-white mb-6 leading-tight animate-fade-in-up font-serif" style={{ animationDelay: '0.2s' }}>
-              {t('title')}
-            </h1>
-            
-            <p className="text-lg md:text-xl text-gold-300 max-w-2xl italic animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              {t('subtitle')}
-            </p>
+        {/* Header */}
+        <div className="pt-32 md:pt-40 pb-16 bg-gradient-to-br from-maroon-950 via-maroon-900 to-maroon-800 relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 silk-texture opacity-20" />
+          <div className="absolute inset-8 border border-gold-500/20 pointer-events-none hidden lg:block" />
+          {/* Rich gradient overlay for darker appearance */}
+          <div className="absolute inset-0 bg-gradient-to-br from-maroon-950/40 via-maroon-900/30 to-maroon-800/40" />
+          {/* Content */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div className="flex items-center justify-center gap-4 mb-4 animate-fade-in-up">
+              <span className="h-px w-12 bg-gold-400 animate-fade-in-left" />
+              <p className="text-gold-400 text-xs font-semibold tracking-[0.3em] uppercase animate-fade-in-up" style={{ animationDelay: '0.1s' }}>✦ Anchan Silks</p>
+              <span className="h-px w-12 bg-gold-400 animate-fade-in-right" />
+            </div>
+            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '0.2s' }}>{t('title')}</h1>
+            <p className="text-cream-200 text-base md:text-lg max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.3s' }}>{t('subtitle')}</p>
           </div>
         </div>
 

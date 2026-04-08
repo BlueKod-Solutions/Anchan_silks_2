@@ -29,12 +29,11 @@ export default function BridalSpotlight() {
       {/* Soft gold glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.06),transparent_65%)]" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* ===== HEADER (ROYAL STYLE) ===== */}
+        {/* ===== HEADER ===== */}
         <div className={`text-center mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
 
-          {/* Ornament */}
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold-500/60" />
             <div className="w-2 h-2 bg-gold-500 rotate-45" />
@@ -54,36 +53,39 @@ export default function BridalSpotlight() {
           </p>
         </div>
 
-        {/* ===== GRID ===== */}
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,220px))] gap-5 justify-center">
+        {/* ===== GRID (5 columns fixed) ===== */}
+        <div className="grid grid-cols-5 gap-4 justify-center">
           {featured.map((product, index) => {
             const name = locale === 'kn' ? product.nameKn : product.name;
 
             return (
               <div
                 key={product.id}
-                className={`group relative transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`group relative transition-all duration-700 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
                 style={{ transitionDelay: `${index * 90}ms` }}
               >
-                <div className="relative aspect-[3/4] rounded-md overflow-hidden">
+                <div className="relative aspect-[3/4] rounded-md overflow-hidden transform transition duration-500 group-hover:scale-[1.06] shadow-md group-hover:shadow-2xl">
 
                   {/* IMAGE */}
                   <Image
                     src={product.image}
                     alt={name}
                     fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
 
-                  {/* BASE OVERLAY */}
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300" />
+                  {/* VERY LIGHT OVERLAY (no more heavy tint) */}
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300" />
 
-                  {/* GRADIENT */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                  {/* SOFT GRADIENT (only for text readability) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-                  {/* GOLD INNER BORDER */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300"
-                    style={{ boxShadow: 'inset 0 0 0 1px rgba(212,175,55,0.45)' }}
+                  {/* GOLD BORDER */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300"
+                    style={{ boxShadow: 'inset 0 0 0 1px rgba(212,175,55,0.6)' }}
                   />
 
                   {/* TAG */}
@@ -96,12 +98,10 @@ export default function BridalSpotlight() {
                   {/* CONTENT */}
                   <div className="absolute bottom-0 left-0 right-0 p-4">
 
-                    {/* NAME (always visible) */}
                     <p className="text-cream-100 text-sm leading-snug tracking-wide">
                       {name}
                     </p>
 
-                    {/* CTA (smooth reveal) */}
                     <div className="overflow-hidden max-h-0 group-hover:max-h-12 transition-all duration-400 ease-out">
                       <a
                         href={buildProductWhatsAppLink(product.name)}
@@ -112,6 +112,7 @@ export default function BridalSpotlight() {
                         {tCat('enquire')}
                       </a>
                     </div>
+
                   </div>
                 </div>
               </div>
@@ -119,7 +120,7 @@ export default function BridalSpotlight() {
           })}
         </div>
 
-        {/* ===== CTA BUTTON ===== */}
+        {/* ===== CTA ===== */}
         <div className="mt-16 flex justify-center">
           <Link
             href={`/${locale}/collections?category=bridal`}

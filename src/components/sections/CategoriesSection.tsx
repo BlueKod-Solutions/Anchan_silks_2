@@ -10,7 +10,7 @@ import { categoryMeta, type Category } from '@/data/products';
 
 const categoryImages: Record<Category, string> = {
   bridal: '/images/bridal/bridal-brocade-1.jpeg',
-  mens: '/images/mens/mens_wear.jpeg',
+  mens: '/images/mens/mens_wear.png',
   womens: '/images/womens/womens_wear.jpeg',
   trending: '/images/trending/bodycon-1.png',
   accessories: '/images/accessories/gold-jewelry-1.jpg',
