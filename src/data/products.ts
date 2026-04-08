@@ -47,14 +47,14 @@ export const products: Product[] = [
     featured: true,
     tag: 'Premium',
   },
-  {
-    id: 'bridal-004',
-    name: 'Mysore Silk Saree',
-    nameKn: 'ಮೈಸೂರು ರೇಷ್ಮೆ ಸೀರೆ',
-    category: 'bridal',
-    image: '/images/bridal/mysore_silk.png',
-    featured: true,
-  },
+  // {
+  //   id: 'bridal-004',
+  //   name: 'Mysore Silk Saree',
+  //   nameKn: 'ಮೈಸೂರು ರೇಷ್ಮೆ ಸೀರೆ',
+  //   category: 'bridal',
+  //   image: '/images/bridal/mysore_silk.png',
+  //   featured: true,
+  // },
   {
     id: 'bridal-005',
     name: 'Pure Silk Saree',
@@ -242,14 +242,14 @@ export const products: Product[] = [
     image: '/images/accessories/gold-jewelry-1.jpg',
     featured: true,
     tag: 'Premium',
-  },
-  {
-    id: 'acc-002',
-    name: 'Footwear Collection',
-    nameKn: 'ಪಾದರಕ್ಷೆ ಸಂಗ್ರಹ',
-    category: 'accessories',
-    image: '/images/accessories/footwear-1.jpg',
-  },
+  }
+  // {
+  //   id: 'acc-002',
+  //   name: 'Footwear Collection',
+  //   nameKn: 'ಪಾದರಕ್ಷೆ ಸಂಗ್ರಹ',
+  //   category: 'accessories',
+  //   image: '/images/accessories/footwear-1.jpg',
+  // },
 ];
 
 // ─── SITE CONFIG ──────────────────────────────────────────────────────────────
