@@ -9,7 +9,7 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { categoryMeta, type Category } from '@/data/products';
 
 const categoryImages: Record<Category, string> = {
-  bridal: '/images/bridal/bridal-brocade-1.jpeg',
+  bridal: '/images/bridal/bridal-brocade-1.png',
   mens: '/images/mens/mens_wear.png',
   womens: '/images/womens/womens_wear.jpeg',
   trending: '/images/trending/bodycon-1.png',

@@ -78,16 +78,26 @@ export default function CollectionsPage() {
                     : categoryMeta[value as Category].label;
                 return (
                   <button
-                    key={value}
-                    onClick={() => setActive(value)}
-                    className={`shrink-0 flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-all duration-200 whitespace-nowrap ${active === value
-                        ? 'bg-maroon-900 text-white'
-                        : 'bg-cream-50 text-charcoal hover:bg-maroon-50 hover:text-maroon-900 border border-cream-200'
-                      }`}
-                  >
-                    <span>{icon}</span>
-                    <span>{label}</span>
-                  </button>
+  key={value}
+  onClick={() => setActive(value)}
+  className={`
+    inline-flex items-center gap-1.5 px-4 py-[7px] rounded-full
+    text-[13px] font-medium tracking-[0.015em] whitespace-nowrap
+    border transition-all duration-150 select-none
+    ${active === value
+      ? 'bg-amber-50 border-amber-400 text-amber-900'
+      : 'bg-white border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-800'
+    }
+  `}
+>
+  {/* <span style={{ fontSize: 14 }}>{icon}</span> */}
+  <span>{label}</span>
+  {active === value && (
+    <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-amber-400 text-white text-[9px]">
+      ✓
+    </span>
+  )}
+</button>
                 );
               })}
             </div>
