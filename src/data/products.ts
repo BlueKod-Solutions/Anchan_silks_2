@@ -47,14 +47,14 @@ export const products: Product[] = [
     featured: true,
     tag: 'Premium',
   },
-  // {
-  //   id: 'bridal-004',
-  //   name: 'Mysore Silk Saree',
-  //   nameKn: 'ಮೈಸೂರು ರೇಷ್ಮೆ ಸೀರೆ',
-  //   category: 'bridal',
-  //   image: '/images/bridal/mysore_silk.png',
-  //   featured: true,
-  // },
+  {
+    id: 'bridal-004',
+    name: 'Mysore Silk Saree',
+    nameKn: 'ಮೈಸೂರು ರೇಷ್ಮೆ ಸೀರೆ',
+    category: 'bridal',
+    image: '/images/bridal/mysore_silk.png',
+    featured: true,
+  },
   {
     id: 'bridal-005',
     name: 'Pure Silk Saree',
@@ -78,13 +78,13 @@ export const products: Product[] = [
     image: '/images/bridal/banarasi-1.png',
     tag: 'New Arrival',
   },
-  {
-    id: 'bridal-008',
-    name: 'Mysore Silk Saree',
-    nameKn: 'ಮೈಸೂರು ರೇಷ್ಮೆ ಸೀರೆ',
-    category: 'bridal',
-    image: '/images/bridal/mysore-silk-1.jpg',
-  },
+  // {
+  //   id: 'bridal-008',
+  //   name: 'Mysore Silk Saree',
+  //   nameKn: 'ಮೈಸೂರು ರೇಷ್ಮೆ ಸೀರೆ',
+  //   category: 'bridal',
+  //   image: '/images/bridal/mysore-silk-1.jpg',
+  // },
   {
     id: 'bridal-009',
     name: 'Pochampally Saree',

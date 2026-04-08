@@ -63,7 +63,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-11 h-11 flex items-center justify-center transition-all duration-300 rounded-lg shadow-md hover:shadow-lg hover:scale-110"
-                      style={{ background: 'radial-gradient(circle at 30% 110%, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)' }}
+                  style={{ background: 'radial-gradient(circle at 30% 110%, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)' }}
 
                   aria-label="Instagram"
                 >
@@ -86,7 +86,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-11 h-11 flex items-center justify-center transition-all duration-300 rounded-lg shadow-md hover:shadow-lg hover:scale-110"
-                  style={{ background: '#25D366' }}
+                style={{ background: '#25D366' }}
 
                 aria-label="WhatsApp"
               >
@@ -184,19 +184,23 @@ export default function Footer() {
         {/* Premium Bottom Bar */}
         <div className="border-t-2 border-gold-500 mt-16 pt-10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-cream-400">
           <p className="font-medium">{t('rights')}</p>
-          <p className="font-medium">
-            {t.rich('madeWith', {
-              link: (chunks) => (
-                <a
-                  href="https://bluekod.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gold-300 hover:text-gold-400 underline transition-colors duration-300"
-                >
-                  {chunks}
-                </a>
-              ),
-            })}
+          <p className="font-medium flex items-center gap-1">
+            {t('madeWithText')}
+
+            <a
+              href="https://bluekod.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-md border border-transparent hover:border-blue-500 p-1 transition-all duration-300"
+            >
+              <Image
+                src="/images/Blue_Kod_Logo_white.png"
+                alt="Bluekod"
+                width={90}
+                height={32}
+                className="object-contain transition-transform duration-300 hover:scale-105"
+              />
+            </a>
           </p>
         </div>
       </div>
