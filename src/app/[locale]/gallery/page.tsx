@@ -1,16 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { X, ZoomIn } from 'lucide-react';
+import { X, ZoomIn, Volume2, VolumeX } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppFloat from '@/components/shared/WhatsAppFloat';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
-// Replace these with actual Cloudinary URLs after uploading client photos
-// Select the best ~20-24 images from the 40 provided
 const galleryImages = [
   { id: 1, src: '/images/gallery/01.jpg.jpeg', alt: 'Bridal silk saree collection', category: 'sarees' },
   { id: 2, src: '/images/gallery/02.jpg.jpeg', alt: 'Kanchipuram silk saree', category: 'sarees' },
@@ -38,8 +36,11 @@ const galleryFilters = ['all', 'sarees', 'bridal', 'womens', 'mens', 'accessorie
 
 export default function GalleryPage() {
   const t = useTranslations('gallery');
-  const { ref: videoRef, isVisible: videoVisible } = useIntersectionObserver({ threshold: 0.1 });
+  
+  // Video Section Observer
+  const { ref: videoRef, isVisible: videoVisible } = useIntersectionObserver({ threshold: 0.4 });
   const { ref: galleryRef, isVisible: galleryVisible } = useIntersectionObserver({ threshold: 0.1 });
+  
   const [activeFilter, setActiveFilter] = useState('all');
   const [lightbox, setLightbox] = useState<(typeof galleryImages)[0] | null>(null);
 
@@ -47,93 +48,104 @@ export default function GalleryPage() {
     ? galleryImages
     : galleryImages.filter((img) => img.category === activeFilter);
 
+  /**
+   * VIDEO CONFIGURATION
+   * muted=false: Requests unmuted playback.
+   * autoplay=true: Starts as soon as the iframe loads.
+   */
+  const videoSrc = "https://player.cloudinary.com/embed/?cloud_name=dpvhamnmx&public_id=anchan-silks-showcase_gallery_h3alg8&autoplay=true&loop=true&muted=false&controls=true";
+
   return (
     <>
       <Navbar />
       <main className="min-h-screen bg-cream-50 pt-20">
 
-        {/* Header */}
+        {/* Hero Header */}
         <div className="pt-32 md:pt-40 pb-16 bg-gradient-to-br from-maroon-950 via-maroon-900 to-maroon-800 relative overflow-hidden">
-          {/* Decorative elements */}
           <div className="absolute inset-0 silk-texture opacity-20" />
-          <div className="absolute inset-8 border border-gold-500/20 pointer-events-none hidden lg:block" />
-          {/* Rich gradient overlay for darker appearance */}
-          <div className="absolute inset-0 bg-gradient-to-br from-maroon-950/40 via-maroon-900/30 to-maroon-800/40" />
-          {/* Content */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
             <div className="flex items-center justify-center gap-4 mb-4 animate-fade-in-up">
-              <span className="h-px w-12 bg-gold-400 animate-fade-in-left" />
-              <p className="text-gold-400 text-xs font-semibold tracking-[0.3em] uppercase animate-fade-in-up" style={{ animationDelay: '0.1s' }}>✦ Anchan Silks</p>
-              <span className="h-px w-12 bg-gold-400 animate-fade-in-right" />
+              <span className="h-px w-12 bg-gold-400" />
+              <p className="text-gold-400 text-xs font-semibold tracking-[0.3em] uppercase">✦ Anchan Silks</p>
+              <span className="h-px w-12 bg-gold-400" />
             </div>
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '0.2s' }}>{t('title')}</h1>
-            <p className="text-cream-200 text-base md:text-lg max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.3s' }}>{t('subtitle')}</p>
+            <h1 className="font-serif text-5xl md:text-6xl text-white mb-6 leading-tight animate-fade-in-up">
+              {t('title')}
+            </h1>
+            <p className="text-cream-200 text-base max-w-2xl mx-auto leading-relaxed animate-fade-in-up">
+              {t('subtitle')}
+            </p>
           </div>
         </div>
 
-        {/* Video Section */}
+        {/* Video Section: Plays UNMUTED on Scroll */}
         <section className="py-16 bg-white" ref={videoRef}>
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <h2 className={`font-serif text-3xl text-maroon-900 mb-3 transition-opacity duration-500 ${videoVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>{t('videoTitle')}</h2>
-              <p className={`text-gray-600 text-sm transition-opacity duration-500 ${videoVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: videoVisible ? '0.1s' : '0ms' }}>{t('videoSubtitle')}</p>
+              <h2 className={`font-serif text-3xl text-maroon-900 mb-3 transition-all duration-700 ${videoVisible ? 'opacity-100' : 'opacity-0'}`}>
+                {t('videoTitle')}
+              </h2>
+              <div className="flex items-center justify-center gap-2 text-gold-600 animate-pulse">
+                <Volume2 size={16} />
+                <span className="text-xs uppercase tracking-widest font-bold">Audio Experience Enabled</span>
+              </div>
             </div>
-            <div className={`relative aspect-video bg-maroon-100 overflow-hidden shadow-xl transition-opacity duration-500 ${videoVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: videoVisible ? '0.2s' : '0ms' }}>
-              <video
-                controls
-                className="w-full h-full object-cover"
-                poster="/images/store/video-poster.jpeg"
-              >
-                {/* Replace with actual video path after upload */}
-                <source src="/video/anchan-silks-showcase1.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+
+            <div className={`relative aspect-video bg-maroon-100 overflow-hidden shadow-2xl rounded-sm transition-all duration-1000 ${videoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+              
+              {/* Conditional Rendering:
+                The iframe is only injected when videoVisible is true.
+                Because muted=false, it will play with sound IF the user has 
+                interacted with the page (clicked) prior to this point.
+              */}
+              {videoVisible ? (
+                <iframe
+                  src={videoSrc}
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                  title="Anchan Silks Video Gallery"
+                ></iframe>
+              ) : (
+                <div className="flex items-center justify-center w-full h-full bg-maroon-900/10">
+                   <div className="text-maroon-900/20 font-serif italic">Loading Experience...</div>
+                </div>
+              )}
             </div>
+            <p className="mt-4 text-center text-gray-400 text-[10px] uppercase tracking-tighter">
+              Note: Browsers may require one click on the page to enable sound.
+            </p>
           </div>
         </section>
 
         {/* Photo Gallery */}
         <section className="py-16" ref={galleryRef}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Filters */}
             <div className="flex flex-wrap gap-2 justify-center mb-12">
-              {galleryFilters.map((f, i) => (
+              {galleryFilters.map((f) => (
                 <button
                   key={f}
                   onClick={() => setActiveFilter(f)}
-                  className={`px-4 py-2 text-sm font-medium capitalize transition-all ${galleryVisible ? 'animate-fade-in-up' : 'opacity-0'} ${activeFilter === f
-                      ? 'bg-maroon-900 text-white'
-                      : 'bg-white border border-cream-200 text-charcoal hover:border-maroon-200 hover:text-maroon-900'
-                    }`}
-                  style={{ animationDelay: galleryVisible ? `${i * 50}ms` : '0ms' }}
+                  className={`px-4 py-2 text-sm font-medium capitalize transition-all ${
+                    activeFilter === f ? 'bg-maroon-900 text-white shadow-md' : 'bg-white border border-cream-200'
+                  }`}
                 >
                   {f}
                 </button>
               ))}
             </div>
 
-            {/* Masonry-style grid */}
             <div className="columns-2 sm:columns-3 lg:columns-4 gap-3 space-y-3">
               {filtered.map((img, i) => (
                 <div
                   key={img.id}
-                  className={`break-inside-avoid group relative overflow-hidden cursor-pointer bg-cream-100 transition-opacity duration-500 ${galleryVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  className={`break-inside-avoid group relative overflow-hidden cursor-pointer transition-all duration-500 ${galleryVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  style={{ transitionDelay: `${i * 30}ms` }}
                   onClick={() => setLightbox(img)}
-                  style={{ animationDelay: galleryVisible ? `${i * 50}ms` : '0ms' }}
                 >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    width={400}
-                    height={500}
-                    className="w-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
-                    onError={() => { }}
-                  />
-                  {/* Placeholder */}
-                  <div className="absolute inset-0 img-shimmer -z-10" />
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-maroon-900/0 group-hover:bg-maroon-900/40 transition-all duration-300 flex items-center justify-center">
-                    <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={28} />
+                  <Image src={img.src} alt={img.alt} width={400} height={500} className="w-full object-cover group-hover:scale-105 transition-transform" />
+                  <div className="absolute inset-0 bg-maroon-900/0 group-hover:bg-maroon-900/40 transition-all flex items-center justify-center">
+                    <ZoomIn className="text-white opacity-0 group-hover:opacity-100" size={28} />
                   </div>
                 </div>
               ))}
@@ -143,29 +155,12 @@ export default function GalleryPage() {
 
         {/* Lightbox */}
         {lightbox && (
-          <div
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-            onClick={() => setLightbox(null)}
-          >
-            <button
-              className="absolute top-6 right-6 text-white hover:text-gold-400 transition-colors"
-              onClick={() => setLightbox(null)}
-              aria-label="Close"
-            >
-              <X size={28} />
+          <div className="fixed inset-0 bg-black/95 z-[60] flex items-center justify-center p-4" onClick={() => setLightbox(null)}>
+            <button className="absolute top-6 right-6 text-white" onClick={() => setLightbox(null)}>
+              <X size={32} />
             </button>
-            <div
-              className="relative max-w-4xl max-h-[85vh] w-full"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={lightbox.src}
-                alt={lightbox.alt}
-                width={1200}
-                height={900}
-                className="object-contain max-h-[85vh] w-auto mx-auto"
-              />
-              <p className="text-cream-300 text-sm text-center mt-4">{lightbox.alt}</p>
+            <div className="relative max-w-5xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
+              <Image src={lightbox.src} alt={lightbox.alt} width={1200} height={900} className="object-contain max-h-[90vh] w-auto" />
             </div>
           </div>
         )}
