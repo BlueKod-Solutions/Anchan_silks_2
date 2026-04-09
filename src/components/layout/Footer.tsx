@@ -194,7 +194,7 @@ export default function Footer() {
               className="inline-flex items-center rounded-md border border-transparent hover:border-blue-500 p-1 transition-all duration-300"
             >
               <Image
-                src="/images/Blue_Kod_Logo_white.png"
+                src="/images/Blue_Kod_Logo_white.svg"
                 alt="Bluekod"
                 width={90}
                 height={32}

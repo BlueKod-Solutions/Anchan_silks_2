@@ -41,7 +41,7 @@ export default function HeroSection() {
           loop
           playsInline
           className="w-full h-full object-cover brightness-90 contrast-110"
-          poster="/images/store/hero-poster.jpg"
+          // poster="/images/store/hero-poster.jpg"
         >
           <source src="/video/anchan-silks-showcase.mp4" type="video/mp4" />
         </video>
