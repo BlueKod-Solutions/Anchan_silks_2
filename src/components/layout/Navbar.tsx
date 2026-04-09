@@ -65,7 +65,7 @@ export default function Navbar() {
               
               {/* Logo container */}
               <div className="relative w-12 h-12 lg:w-14 lg:h-14 rounded-lg bg-gradient-to-br from-maroon-800 to-maroon-900 border-2 border-gold-400 transition-transform duration-300 group-hover:scale-110 flex items-center justify-center p-1">
-                <Image src="/images/logo.png" alt="Anchan Silks" fill className="object-contain" />
+                <Image src="/images/logo.svg" alt="Anchan Silks" fill className="object-contain" />
               </div>
             </div>
             <div className="hidden sm:block">

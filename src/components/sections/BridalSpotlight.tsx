@@ -14,9 +14,10 @@ export default function BridalSpotlight() {
   const locale = useLocale();
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
+  // If you want to see the centering effect, ensure this is an odd number (like 5)
   const featured = products
     .filter((p) => p.category === 'bridal' && p.featured)
-    .slice(0, 6);
+    .slice(0, 5); 
 
   return (
     <section
@@ -33,7 +34,6 @@ export default function BridalSpotlight() {
 
         {/* ===== HEADER ===== */}
         <div className={`text-center mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold-500/60" />
             <div className="w-2 h-2 bg-gold-500 rotate-45" />
@@ -53,20 +53,25 @@ export default function BridalSpotlight() {
           </p>
         </div>
 
-        {/* ===== GRID (5 columns fixed) ===== */}
-        <div className="grid grid-cols-5 gap-4 justify-center">
+        {/* ===== GRID ===== */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {featured.map((product, index) => {
             const name = locale === 'kn' ? product.nameKn : product.name;
 
             return (
               <div
                 key={product.id}
-                className={`group relative transition-all duration-700 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
+                className={`group relative transition-all duration-700 
+                  ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+                  /* MOBILE CENTERING LOGIC */
+                  last:col-span-2 last:md:col-span-1 last:flex last:justify-center
+                `}
                 style={{ transitionDelay: `${index * 90}ms` }}
               >
-                <div className="relative aspect-[3/4] rounded-md overflow-hidden transform transition duration-500 group-hover:scale-[1.06] shadow-md group-hover:shadow-2xl">
+                {/* Added 'w-full max-w-[200px] md:max-w-none' to the inner container 
+                   to prevent the centered item from becoming too wide on mobile.
+                */}
+                <div className="relative aspect-[3/4] rounded-md overflow-hidden transform transition duration-500 group-hover:scale-[1.06] shadow-md group-hover:shadow-2xl w-full max-w-[220px] md:max-w-none">
 
                   {/* IMAGE */}
                   <Image
@@ -76,10 +81,10 @@ export default function BridalSpotlight() {
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
 
-                  {/* VERY LIGHT OVERLAY (no more heavy tint) */}
+                  {/* LIGHT OVERLAY */}
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300" />
 
-                  {/* SOFT GRADIENT (only for text readability) */}
+                  {/* GRADIENT */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
                   {/* GOLD BORDER */}
@@ -97,7 +102,6 @@ export default function BridalSpotlight() {
 
                   {/* CONTENT */}
                   <div className="absolute bottom-0 left-0 right-0 p-4">
-
                     <p className="text-cream-100 text-sm leading-snug tracking-wide">
                       {name}
                     </p>
@@ -112,7 +116,6 @@ export default function BridalSpotlight() {
                         {tCat('enquire')}
                       </a>
                     </div>
-
                   </div>
                 </div>
               </div>

@@ -155,16 +155,17 @@ export default function AboutPage() {
               <div className="w-full lg:w-[45%] flex flex-col justify-center py-10 order-2 lg:ml-auto lg:translate-x-20">
 
                 {/* IMAGE */}
-                <div className={`relative w-full h-[500px] lg:h-[700px] shadow-2xl rounded-sm overflow-hidden transition-all duration-1000 delay-300 ${storyVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-                  <Image
-                    src="/images/Anchan_shop.jpeg"
-                    alt="Anchan Mall Exterior"
-                    fill
-                    className="object-cover object-center"
-                    priority
-                  />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
-                </div>
+                {/* Container with a more natural aspect ratio for buildings */}
+<div className={`relative w-full aspect-[4/3] lg:aspect-square shadow-2xl rounded-sm overflow-hidden transition-all duration-1000 delay-300 ${storyVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+  <Image
+    src="/images/Anchan_shop.jpeg"
+    alt="Anchan Mall Exterior"
+    fill
+    className="object-cover object-center" 
+    priority
+  />
+  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
+</div>
 
                 {/* CAPTION */}
                 <div className="mt-8 text-center lg:text-right lg:-translate-x-20">

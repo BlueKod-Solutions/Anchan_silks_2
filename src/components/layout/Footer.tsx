@@ -37,7 +37,7 @@ export default function Footer() {
                 {/* Logo container with border */}
                 <div className="relative w-20 h-20 rounded-lg bg-gradient-to-br from-maroon-800 to-maroon-900 border-2 border-gold-400 p-1.5 shadow-lg group-hover:shadow-xl transition-all duration-300 flex items-center justify-center">
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logo.svg"
                     alt="Anchan Silks Logo"
                     fill
                     className="object-contain p-2"

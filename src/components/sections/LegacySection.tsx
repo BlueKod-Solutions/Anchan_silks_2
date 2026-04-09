@@ -32,9 +32,42 @@ export default function LegacySection() {
     >
       {/* 👑 Large faded watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <h1 className="text-[120px] md:text-[220px] font-serif text-maroon-950/5 tracking-widest uppercase">
-          Legacy
-        </h1>
+        {/* <div className="absolute inset-0 pointer-events-none">
+  <img
+    src="/images/logo.svg"
+    alt="Brand Logo"
+    className="
+      fixed 
+      top-[20%] left-[50%]
+      -translate-x-1/2
+
+      w-[700px] sm:w-[900px] md:w-[1200px]
+
+      opacity-[0.04]
+      mix-blend-multiply
+      select-none
+    "
+  />
+</div> */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <img
+            src="/images/logo.svg"
+            alt="Brand Logo"
+            className="
+  absolute 
+  top-[42%] left-[50%] 
+  -translate-x-1/2 -translate-y-1/2
+
+  w-[480px] 
+  sm:w-[650px] 
+  md:w-[1100px] 
+  lg:w-[1400px]
+
+  opacity-[0.05] sm:opacity-[0.06]
+  mix-blend-multiply
+"
+          />
+        </div>
       </div>
 
       {/* ✨ Decorative radial glow */}
@@ -98,16 +131,16 @@ export default function LegacySection() {
           <div className="inline-block relative">
             <span className="block text-gold-600 text-3xl font-serif mb-4 opacity-40">“</span>
             <p className="text-2xl md:text-3xl font-serif text-maroon-900 leading-relaxed italic max-w-3xl mx-auto">
-               Your trust is our heritage, and your grace is our greatest service.
+              Your trust is our heritage, and your grace is our greatest service.
             </p>
             <span className="block text-gold-600 text-3xl font-serif mt-2 opacity-40 text-right">”</span>
-            
+
             {/* Sub-text signature */}
             <div className="mt-8 flex flex-col items-center gap-2">
-               <div className="h-px w-12 bg-gold-500/50" />
-               <p className="text-xs tracking-[0.4em] uppercase text-gold-700 font-bold">
-                 Always at your service
-               </p>
+              <div className="h-px w-12 bg-gold-500/50" />
+              <p className="text-xs tracking-[0.4em] uppercase text-gold-700 font-bold">
+                Always at your service
+              </p>
             </div>
           </div>
         </div>
