@@ -32,24 +32,31 @@ export default function LegacySection() {
     >
       {/* 👑 Large faded watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        {/* <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none">
   <img
     src="/images/logo.svg"
     alt="Brand Logo"
     className="
       fixed 
-      top-[20%] left-[50%]
+      /* Mobile: 25% down (moves it lower) */
+      top-[30%] 
+      
+      /* Desktop: 15% down (keeps your perfect setting) */
+      md:top-[15%] 
+      
+      left-[50%]
       -translate-x-1/2
 
-      w-[700px] sm:w-[900px] md:w-[1200px]
+      /* Sizing */
+      w-[700px] sm:w-[900px] md:w-[600px]
 
       opacity-[0.04]
       mix-blend-multiply
       select-none
     "
   />
-</div> */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+</div>
+        {/* <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <img
             src="/images/logo.svg"
             alt="Brand Logo"
@@ -67,7 +74,7 @@ export default function LegacySection() {
   mix-blend-multiply
 "
           />
-        </div>
+        </div> */}
       </div>
 
       {/* ✨ Decorative radial glow */}
