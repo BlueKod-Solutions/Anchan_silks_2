@@ -82,10 +82,10 @@ export default function GalleryPage() {
               <video
                 controls
                 className="w-full h-full object-cover"
-                poster="/images/store/video-poster.jpg"
+                poster="/images/store/video-poster.jpeg"
               >
                 {/* Replace with actual video path after upload */}
-                <source src="/video/anchan-silks-showcase.mp4" type="video/mp4" />
+                <source src="/video/anchan-silks-showcase1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
