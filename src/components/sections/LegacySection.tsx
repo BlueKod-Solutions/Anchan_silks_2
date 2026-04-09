@@ -120,7 +120,7 @@ export default function LegacySection() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 font-sans">
           {stats.map((stat, i) => (
             <StatItem key={i} stat={stat} />
           ))}

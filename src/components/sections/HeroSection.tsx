@@ -114,10 +114,10 @@ export default function HeroSection() {
             { number: 25, suffix: '+', label: 'Years of Trust' },
             { number: 1000, suffix: '+', label: 'Happy Brides' },
             { number: 2, suffix: '', label: 'Stores' },
-            { number: 1005, suffix: '+', label: 'Children Supported' },
+            { number: 1000, suffix: '+', label: 'Children Supported' },
           ].map((stat, i) => (
             <div key={stat.label} className="text-center">
-              <div className="font-serif text-5xl text-gold-400 font-bold">
+              <div className="font-family:sans-serif text-2xl text-gold-400 font-bold">
                 <Counter target={stat.number} duration={1200 + i * 200} />
                 {stat.suffix}
               </div>

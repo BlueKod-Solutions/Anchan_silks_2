@@ -101,11 +101,11 @@ export default function CategoriesSection() {
                       </h3>
 
                       {/* Bridal description (Only on hover/desktop) */}
-                      {isBridal && (
+                      {/* {isBridal && (
                         <p className="hidden md:block text-cream-200 text-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           {meta.description}
                         </p>
-                      )}
+                      )} */}
 
                       {/* CTA */}
                       <span className="

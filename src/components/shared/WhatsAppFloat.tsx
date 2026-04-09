@@ -16,16 +16,16 @@ export default function WhatsAppFloat() {
       {/* Tooltip */}
       {showTooltip && (
         <div className="flex items-start gap-2 bg-white shadow-xl border border-gray-100 rounded-lg p-3 max-w-[200px]">
-          <p className="text-xs text-gray-700 leading-snug">
+          {/* <p className="text-xs text-gray-700 leading-snug">
             Chat with us! We&apos;re happy to help you find the perfect saree. 🥻
-          </p>
-          <button
+          </p> */}
+          {/* <button
             onClick={() => { setShowTooltip(false); setDismissed(true); }}
             className="shrink-0 text-gray-400 hover:text-gray-600"
             aria-label="Dismiss"
           >
             <X size={14} />
-          </button>
+          </button> */}
         </div>
       )}
 
