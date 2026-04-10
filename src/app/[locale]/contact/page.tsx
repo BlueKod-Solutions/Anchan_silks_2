@@ -343,7 +343,7 @@ export default function ContactPage() {
                     name="message"
                     required
                     rows={6}
-                    placeholder="Tell us what you're looking for or any special requests..."
+            placeholder={"Tell us what you're looking for or any special requests..."}
                     value={form.message}
                     onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
                     className="w-full border border-gray-300 bg-white px-4 py-3 font-sans text-sm text-gray-900 placeholder-gray-400 rounded-lg focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-200 transition-all resize-none"
@@ -367,7 +367,7 @@ export default function ContactPage() {
                 </button>
 
                 <p className="text-center text-gray-500 text-sm">
-                  We'll respond within 24 hours on business days
+                  We&apos;ll respond within 24 hours on business days
                 </p>
               </form>
             )}
