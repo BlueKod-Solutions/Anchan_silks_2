@@ -17,6 +17,7 @@ const AnimatedNumber = ({ value, isVisible }: { value: string, isVisible: boolea
   const target = targetMatch ? parseInt(targetMatch[0], 10) : null;
   const suffix = value.replace(/[0-9]/g, '');
 
+
   useEffect(() => {
     if (!isVisible || target === null) return;
 
@@ -53,7 +54,7 @@ export default function AboutPage() {
   const { ref: socialRef, isVisible: socialVisible } = useIntersectionObserver({ threshold: 0.1 });
   const { ref: trustRef, isVisible: trustVisible } = useIntersectionObserver({ threshold: 0.1 });
   const { ref: ownerRef, isVisible: ownerVisible } = useIntersectionObserver({ threshold: 0.1 });
-
+  const { ref: heritageRef, isVisible: heritageVisible } = useIntersectionObserver({ threshold: 0.1 });
   return (
     <>
       <Navbar />
@@ -260,6 +261,64 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        <section className="py-16 md:py-24 bg-gradient-to-br from-cream-50 to-maroon-50" ref={heritageRef}>
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col md:grid md:grid-cols-2 gap-12 items-center">
+
+      {/* CONTENT CONTAINER — left side */}
+      <div
+        className={`text-center md:text-left transition-all duration-700 ${heritageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        style={{ animationDelay: heritageVisible ? '200ms' : '0ms' }}
+      >
+        <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
+          <span className="h-px w-8 bg-gold-500" />
+          <p className="text-gold-600 text-xs font-semibold tracking-[0.2em] uppercase">{t('heritageTitle')}</p>
+          <span className="h-px w-8 bg-gold-500 md:hidden" />
+        </div>
+
+        <h2 className="font-serif text-3xl md:text-4xl text-maroon-950 mb-6 leading-tight">
+          Woven with Tradition, Crafted with Love
+        </h2>
+
+        <div className="mb-8 px-2 md:px-0">
+          <p className="text-lg md:text-xl text-maroon-900 leading-relaxed italic font-light relative">
+            <span className="text-5xl text-gold-500/30 font-serif absolute -top-4 -left-2 md:-left-6 lg:text-gold-500 lg:relative lg:top-1 lg:left-0 lg:block lg:mb-2">&quot;</span>
+            <span className="relative z-10">{t('heritageQuote')}</span>
+          </p>
+        </div>
+
+        <p className="text-base text-charcoal mb-10 leading-relaxed max-w-prose mx-auto md:mx-0">
+          {t('heritageMessage')}
+        </p>
+
+        <div className="inline-block md:block border-t border-gold-300 pt-6 px-4 md:px-0 md:w-64">
+          <p className="font-serif text-2xl text-gold-600 font-bold tracking-wide uppercase">Shekhar Anchan</p>
+          <div className="flex flex-col mt-1">
+            <span className="font-serif text-xl text-maroon-950 font-semibold italic">Partner</span>
+            <span className="text-xl text-charcoal/70 uppercase tracking-widest mt-1">Anchan Silks</span>
+          </div>
+        </div>
+      </div>
+
+      {/* IMAGE CONTAINER — right side */}
+      <div className={`flex justify-center transition-all duration-700 ${heritageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="relative">
+          <div className="border-[6px] md:border-8 border-gold-400 shadow-2xl overflow-hidden max-w-[280px] sm:max-w-sm">
+            <img
+              src="/images/Anchan_Partner.jpeg"
+              alt="Master Weaver"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="absolute -top-4 -left-4 w-24 h-24 border-2 border-maroon-200 pointer-events-none hidden lg:block" />
+          <div className="absolute -bottom-4 -right-4 w-20 h-20 border-2 border-gold-200 pointer-events-none hidden lg:block" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
         {/* Social Commitment & Impact */}
         <section className="py-24 md:py-32 bg-gradient-to-br from-stone-100 via-cream-50 to-stone-100 relative overflow-hidden" ref={socialRef}>
