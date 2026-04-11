@@ -157,16 +157,16 @@ export default function AboutPage() {
 
                 {/* IMAGE */}
                 {/* Container with a more natural aspect ratio for buildings */}
-<div className={`relative w-full aspect-[4/3] lg:aspect-square shadow-2xl rounded-sm overflow-hidden transition-all duration-1000 delay-300 ${storyVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-  <Image
-    src="/images/Anchan_shop.jpeg"
-    alt="Anchan Mall Exterior"
-    fill
-    className="object-cover object-center" 
-    priority
-  />
-  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
-</div>
+                <div className={`relative w-full aspect-[4/3] lg:aspect-square shadow-2xl rounded-sm overflow-hidden transition-all duration-1000 delay-300 ${storyVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                  <Image
+                    src="/images/Anchan_shop.jpeg"
+                    alt="Anchan Mall Exterior"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                  />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
+                </div>
 
                 {/* CAPTION */}
                 <div className="mt-8 text-center lg:text-right lg:-translate-x-20">
@@ -265,62 +265,62 @@ export default function AboutPage() {
         </section>
 
         <section className="py-16 md:py-24 bg-gradient-to-br from-cream-50 to-maroon-50" ref={heritageRef}>
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex flex-col md:grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-12 items-center">
 
-      {/* CONTENT CONTAINER — left side */}
-      <div
-        className={`text-center md:text-left transition-all duration-700 ${heritageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-        style={{ animationDelay: heritageVisible ? '200ms' : '0ms' }}
-      >
-        <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
-          <span className="h-px w-8 bg-gold-500" />
-          <p className="text-gold-600 text-xs font-semibold tracking-[0.2em] uppercase">{t('heritageTitle')}</p>
-          <span className="h-px w-8 bg-gold-500 md:hidden" />
-        </div>
+              {/* CONTENT CONTAINER — left side */}
+              <div
+                className={`text-center md:text-left transition-all duration-700 ${heritageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ animationDelay: heritageVisible ? '200ms' : '0ms' }}
+              >
+                <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
+                  <span className="h-px w-8 bg-gold-500" />
+                  <p className="text-gold-600 text-xs font-semibold tracking-[0.2em] uppercase">{t('heritageTitle')}</p>
+                  <span className="h-px w-8 bg-gold-500 md:hidden" />
+                </div>
 
-        <h2 className="font-serif text-3xl md:text-4xl text-maroon-950 mb-6 leading-tight">
-          Woven with Tradition, Crafted with Love
-        </h2>
+                <h2 className="font-serif text-3xl md:text-4xl text-maroon-950 mb-6 leading-tight">
+                  Woven with Tradition, Crafted with Love
+                </h2>
 
-        <div className="mb-8 px-2 md:px-0">
-          <p className="text-lg md:text-xl text-maroon-900 leading-relaxed italic font-light relative">
-            <span className="text-5xl text-gold-500/30 font-serif absolute -top-4 -left-2 md:-left-6 lg:text-gold-500 lg:relative lg:top-1 lg:left-0 lg:block lg:mb-2">&quot;</span>
-            <span className="relative z-10">{t('heritageQuote')}</span>
-          </p>
-        </div>
+                <div className="mb-8 px-2 md:px-0">
+                  <p className="text-lg md:text-xl text-maroon-900 leading-relaxed italic font-light relative">
+                    <span className="text-5xl text-gold-500/30 font-serif absolute -top-4 -left-2 md:-left-6 lg:text-gold-500 lg:relative lg:top-1 lg:left-0 lg:block lg:mb-2">&quot;</span>
+                    <span className="relative z-10">{t('heritageQuote')}</span>
+                  </p>
+                </div>
 
-        <p className="text-base text-charcoal mb-10 leading-relaxed max-w-prose mx-auto md:mx-0">
-          {t('heritageMessage')}
-        </p>
+                <p className="text-base text-charcoal mb-10 leading-relaxed max-w-prose mx-auto md:mx-0">
+                  {t('heritageMessage')}
+                </p>
 
-        <div className="inline-block md:block border-t border-gold-300 pt-6 px-4 md:px-0 md:w-64">
-          <p className="font-serif text-2xl text-gold-600 font-bold tracking-wide uppercase">Shekhar Anchan</p>
-          <div className="flex flex-col mt-1">
-            <span className="font-serif text-xl text-maroon-950 font-semibold italic">Partner</span>
-            <span className="text-xl text-charcoal/70 uppercase tracking-widest mt-1">Anchan Silks</span>
+                <div className="inline-block md:block border-t border-gold-300 pt-6 px-4 md:px-0 md:w-64">
+                  <p className="font-serif text-2xl text-gold-600 font-bold tracking-wide uppercase">Shekhar Anchan</p>
+                  <div className="flex flex-col mt-1">
+                    <span className="font-serif text-xl text-maroon-950 font-semibold italic">Partner</span>
+                    <span className="text-xl text-charcoal/70 uppercase tracking-widest mt-1">Anchan Silks</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* IMAGE CONTAINER — right side */}
+              <div className={`flex justify-center transition-all duration-700 ${heritageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="relative">
+                  <div className="border-[6px] md:border-8 border-gold-400 shadow-2xl overflow-hidden max-w-[280px] sm:max-w-sm">
+                    <img
+                      src="/images/Anchan_Partner.jpeg"
+                      alt="Shekhar Anchan, Partner at Anchan Silks"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                  <div className="absolute -top-4 -left-4 w-24 h-24 border-2 border-maroon-200 pointer-events-none hidden lg:block" />
+                  <div className="absolute -bottom-4 -right-4 w-20 h-20 border-2 border-gold-200 pointer-events-none hidden lg:block" />
+                </div>
+              </div>
+
+            </div>
           </div>
-        </div>
-      </div>
-
-      {/* IMAGE CONTAINER — right side */}
-      <div className={`flex justify-center transition-all duration-700 ${heritageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="relative">
-          <div className="border-[6px] md:border-8 border-gold-400 shadow-2xl overflow-hidden max-w-[280px] sm:max-w-sm">
-            <img
-              src="/images/Anchan_Partner.jpeg"
-              alt="Shekhar Anchan, Partner at Anchan Silks"
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="absolute -top-4 -left-4 w-24 h-24 border-2 border-maroon-200 pointer-events-none hidden lg:block" />
-          <div className="absolute -bottom-4 -right-4 w-20 h-20 border-2 border-gold-200 pointer-events-none hidden lg:block" />
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+        </section>
 
         {/* Social Commitment & Impact */}
         <section className="py-24 md:py-32 bg-gradient-to-br from-stone-100 via-cream-50 to-stone-100 relative overflow-hidden" ref={socialRef}>
@@ -335,6 +335,7 @@ export default function AboutPage() {
               <div className="mx-4 text-gold-600 transform rotate-45 text-sm md:text-base">◆</div>
               <div className="h-[2px] flex-1 bg-gradient-to-l from-transparent to-gold-600/80 rounded-full" />
             </div>
+            
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
@@ -371,39 +372,40 @@ export default function AboutPage() {
 
                     {/* Stats Grid */}
                     <div className="grid grid-cols-2 gap-4 md:gap-6">
-                    {[
-                      { value: '1999', label: 'Founded' },
-                      { value: '1005+', label: 'Children Supported' },
-                      { value: '25+', label: 'Years Active' },
-                      { value: '∞', label: 'Community Impact' },
-                    ].map((s, i) => (
-                      <div
-                        key={s.label}
-                        className={`flex flex-col justify-center p-6 bg-stone-50/50 hover:bg-cream-50 border border-stone-100 hover:border-gold-200 transition-all duration-500 group ${trustVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                        style={{ transitionDelay: trustVisible ? `${200 + i * 150}ms` : '0ms' }}
-                      >
-                        <p className="font-serif text-3xl md:text-4xl text-maroon-950 font-medium mb-2 transform group-hover:scale-105 group-hover:text-gold-600 transition-all duration-500 origin-left flex items-center">
-                          <AnimatedNumber value={s.value} isVisible={trustVisible} />
-                        </p>
-                        <p className="text-charcoal/60 text-[10px] md:text-xs tracking-[0.2em] uppercase font-semibold">
-                          {s.label}
-                        </p>
-                      </div>
-                    ))}
+                      {[
+                        { value: '1999', label: 'Founded' },
+                        { value: '1005+', label: 'Children Supported' },
+                        { value: '25+', label: 'Years Active' },
+                        { value: '∞', label: 'Community Impact' },
+                      ].map((s, i) => (
+                        <div
+                          key={s.label}
+                          className={`flex flex-col justify-center p-6 bg-stone-50/50 hover:bg-cream-50 border border-stone-100 hover:border-gold-200 transition-all duration-500 group ${trustVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                          style={{ transitionDelay: trustVisible ? `${200 + i * 150}ms` : '0ms' }}
+                        >
+                          <p className="font-serif text-3xl md:text-4xl text-maroon-950 font-medium mb-2 transform group-hover:scale-105 group-hover:text-gold-600 transition-all duration-500 origin-left flex items-center">
+                            <AnimatedNumber value={s.value} isVisible={trustVisible} />
+                          </p>
+                          <p className="text-charcoal/60 text-[10px] md:text-xs tracking-[0.2em] uppercase font-semibold">
+                            {s.label}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
+
+              </div>
+
+              {/* BOTTOM ELEGANT DIVIDER */}
+              <div className={`flex items-center justify-center w-full max-w-md mx-auto mt-20 transition-all duration-1000 delay-500 ${socialVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                <div className="h-[2px] flex-1 bg-gradient-to-r from-transparent to-gold-600/80 rounded-full" />
+                <div className="mx-4 text-gold-600 transform rotate-45 text-sm md:text-base">◆</div>
+                <div className="h-[2px] flex-1 bg-gradient-to-l from-transparent to-gold-600/80 rounded-full" />
               </div>
 
             </div>
-
-            {/* BOTTOM ELEGANT DIVIDER */}
-            <div className={`flex items-center justify-center w-full max-w-md mx-auto mt-20 transition-all duration-1000 delay-500 ${socialVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-              <div className="h-[2px] flex-1 bg-gradient-to-r from-transparent to-gold-600/80 rounded-full" />
-              <div className="mx-4 text-gold-600 transform rotate-45 text-sm md:text-base">◆</div>
-              <div className="h-[2px] flex-1 bg-gradient-to-l from-transparent to-gold-600/80 rounded-full" />
             </div>
-
-          </div>
         </section>
 
         <Footer />
