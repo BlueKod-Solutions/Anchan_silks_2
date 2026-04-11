@@ -212,9 +212,11 @@ export default function AboutPage() {
               <div className={`flex justify-center transition-all duration-700 ${ownerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <div className="relative">
                   <div className="border-[6px] md:border-8 border-gold-400 shadow-2xl overflow-hidden max-w-[280px] sm:max-w-sm">
-                    <img
+                    <Image
                       src="/images/Anchan_Owner.jpeg"
                       alt="Owner"
+                      width={560}
+                      height={700}
                       className="w-full h-auto object-cover"
                     />
                   </div>
