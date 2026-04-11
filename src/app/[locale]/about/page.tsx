@@ -307,7 +307,7 @@ export default function AboutPage() {
           <div className="border-[6px] md:border-8 border-gold-400 shadow-2xl overflow-hidden max-w-[280px] sm:max-w-sm">
             <img
               src="/images/Anchan_Partner.jpeg"
-              alt="Master Weaver"
+              alt="Shekhar Anchan, Partner at Anchan Silks"
               className="w-full h-auto object-cover"
             />
           </div>
