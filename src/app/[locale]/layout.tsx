@@ -4,7 +4,6 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import '@/styles/globals.css';
 
-
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
@@ -33,17 +32,26 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://anchansilks.com'),
 };
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: {
+// Next.js 15 requires params to be a Promise
+type Props = {
   children: React.ReactNode;
-  params: { locale: string };
-}) {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function RootLayout(props: Props) {
+  // Await the params before accessing properties
+  const { locale } = await props.params;
+  const children = props.children;
+  
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={inter.variable}>
+    <html 
+      lang={locale} 
+      className={inter.variable}
+      // Fixes the "scroll-behavior: smooth" warning
+      data-scroll-behavior="smooth" 
+    >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
