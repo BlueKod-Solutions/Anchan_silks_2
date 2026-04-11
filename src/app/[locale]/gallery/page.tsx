@@ -23,7 +23,7 @@ const galleryImages = [
   { id: 10, src: '/images/gallery/10.jpg.jpeg', alt: 'Tissue silk saree', category: ['mens', 'womens'] },
   { id: 11, src: '/images/gallery/11.jpg.jpeg', alt: 'Jodhpuri suit for men', category: ['mens'] },
   { id: 12, src: '/images/gallery/12.jpg.jpeg', alt: 'Soft silk saree', category: ['womens'] },
-  { id: 13, src: '/images/gallery/13.jpg.jpeg', alt: 'Mysore silk saree', category: ['mens'] },
+  { id: 13, src: '/images/gallery/13.jpg.jpeg', alt: 'Mysore silk saree', category: ['sarees'] },
   { id: 14, src: '/images/gallery/14.jpg.jpeg', alt: 'Bridal collection display', category: ['mens'] },
   { id: 15, src: '/images/gallery/15.jpg.jpeg', alt: 'Footwear collection', category: ['mens'] },
   { id: 16, src: '/images/gallery/16.jpg.jpeg', alt: 'Chanderi silk saree', category: ['mens'] },
