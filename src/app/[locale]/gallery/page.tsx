@@ -25,7 +25,7 @@ const galleryImages = [
   { id: 12, src: '/images/gallery/12.jpg.jpeg', alt: 'Soft silk saree', category: ['womens'] },
   { id: 13, src: '/images/gallery/13.jpg.jpeg', alt: 'Mysore silk saree', category: ['mens'] },
   { id: 14, src: '/images/gallery/14.jpg.jpeg', alt: 'Bridal collection display', category: ['mens'] },
-  { id: 15, src: '/images/gallery/15.jpg.jpeg', alt: 'Footwear collection', category: ['mens '] },
+  { id: 15, src: '/images/gallery/15.jpg.jpeg', alt: 'Footwear collection', category: ['mens'] },
   { id: 16, src: '/images/gallery/16.jpg.jpeg', alt: 'Chanderi silk saree', category: ['mens'] },
   { id: 17, src: '/images/gallery/17.jpg.jpeg', alt: 'Palazzo set display', category: ['mens'] },
   { id: 18, src: '/images/gallery/18.jpg.jpeg', alt: 'Store at bypass bantwal', category: ['womens'] },
