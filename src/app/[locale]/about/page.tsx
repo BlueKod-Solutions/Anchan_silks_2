@@ -356,18 +356,19 @@ export default function AboutPage() {
               </div>
 
               {/* RIGHT CONTENT: The Impact Card */}
-              <div className={`transition-all duration-1000 ${trustVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'}`} ref={trustRef}>
-                <div className="relative bg-white border border-gold-200/60 p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] overflow-hidden rounded-sm">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold-50 to-transparent opacity-80" />
+              <div ref={trustRef}>
+                <div className={`transition-all duration-1000 ${trustVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'}`}>
+                  <div className="relative bg-white border border-gold-200/60 p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] overflow-hidden rounded-sm">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold-50 to-transparent opacity-80" />
 
-                  <div className="w-16 h-16 bg-cream-50 border border-gold-200 flex items-center justify-center mb-8 rounded-full relative group transition-colors duration-500 hover:bg-gold-50 hover:border-gold-300">
-                    <span className="text-gold-500 text-2xl relative z-10 transition-transform group-hover:scale-110 duration-500">✦</span>
-                  </div>
+                    <div className="w-16 h-16 bg-cream-50 border border-gold-200 flex items-center justify-center mb-8 rounded-full relative group transition-colors duration-500 hover:bg-gold-50 hover:border-gold-300">
+                      <span className="text-gold-500 text-2xl relative z-10 transition-transform group-hover:scale-110 duration-500">✦</span>
+                    </div>
 
-                  <h3 className="font-serif text-3xl md:text-4xl text-maroon-900 mb-10">{t('trustTitle')}</h3>
+                    <h3 className="font-serif text-3xl md:text-4xl text-maroon-900 mb-10">{t('trustTitle')}</h3>
 
-                  {/* Stats Grid */}
-                  <div className="grid grid-cols-2 gap-4 md:gap-6">
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-2 gap-4 md:gap-6">
                     {[
                       { value: '1999', label: 'Founded' },
                       { value: '1005+', label: 'Children Supported' },
