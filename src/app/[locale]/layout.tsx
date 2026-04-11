@@ -1,18 +1,37 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Cormorant_Garamond, Noto_Sans_Kannada } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import '@/styles/globals.css';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+// 1. Optimized Font Loading (Self-hosted by Next.js)
+const inter = Inter({ 
+  subsets: ['latin'], 
+  variable: '--font-inter',
+  display: 'swap', 
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-cormorant',
+  display: 'swap',
+});
+
+const kannada = Noto_Sans_Kannada({
+  subsets: ['kannada'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-kannada',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
-    default: 'Anchan Silks — Bantwal\'s Most Trusted Bridal & Silk Destination',
+    default: "Anchan Silks — Bantwal's Most Trusted Bridal & Silk Destination",
     template: '%s | Anchan Silks',
   },
   description:
-    'Anchan Silks, Bypass Bantwal — Dakshina Karnataka\'s premier destination for bridal sarees, silk sarees, ethnic wear and more. Est. 1999.',
+    "Anchan Silks, Bypass Bantwal — Dakshina Karnataka's premier destination for bridal sarees, silk sarees, ethnic wear and more. Est. 1999.",
   keywords: [
     'silk sarees bantwal',
     'bridal sarees bantwal',
@@ -32,31 +51,23 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://anchansilks.com'),
 };
 
-// Next.js 15 requires params to be a Promise
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 };
 
 export default async function RootLayout(props: Props) {
-  // Await the params before accessing properties
   const { locale } = await props.params;
   const children = props.children;
-  
   const messages = await getMessages();
 
   return (
     <html 
       lang={locale} 
-      className={inter.variable}
-      // Fixes the "scroll-behavior: smooth" warning
-      data-scroll-behavior="smooth" 
+      // 2. Pass all font variables to the HTML tag
+      className={`${inter.variable} ${cormorant.variable} ${kannada.variable} scroll-smooth`}
     >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      <body className={locale === 'kn' ? 'font-kannada' : ''}>
+      <body className={locale === 'kn' ? 'font-kannada' : 'font-sans'}>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

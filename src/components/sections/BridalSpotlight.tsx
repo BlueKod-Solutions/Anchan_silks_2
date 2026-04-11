@@ -78,6 +78,7 @@ export default function BridalSpotlight() {
                     src={product.image}
                     alt={name}
                     fill
+                    fetchPriority="high"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
 

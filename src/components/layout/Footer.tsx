@@ -40,6 +40,7 @@ export default function Footer() {
                     src="/images/logo.svg"
                     alt="Anchan Silks Logo"
                     fill
+                    fetchPriority="high"
                     className="object-contain p-2"
                   />
                 </div>
@@ -196,6 +197,7 @@ export default function Footer() {
               <Image
                 src="/images/Blue_Kod_Logo_white.svg"
                 alt="Bluekod"
+                fetchPriority="high"
                 width={90}
                 height={32}
                 className="object-contain transition-transform duration-300 hover:scale-105"

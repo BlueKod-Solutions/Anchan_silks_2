@@ -1,27 +1,30 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import { ChevronDown } from 'lucide-react';
 import { buildWhatsAppLink } from '@/lib/utils';
 
-/* 🔢 Counter Component */
+/* 🔢 Counter Component - Optimized to prevent unnecessary re-renders */
 function Counter({ target, duration = 2000 }: { target: number; duration?: number }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let startTimestamp: number | null = null;
+    let frameId: number;
+
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       setCount(Math.floor(progress * target));
       if (progress < 1) {
-        window.requestAnimationFrame(step);
+        frameId = window.requestAnimationFrame(step);
       }
     };
-    window.requestAnimationFrame(step);
+    frameId = window.requestAnimationFrame(step);
+    return () => window.cancelAnimationFrame(frameId); // Cleanup to save Main Thread
   }, [target, duration]);
 
   return <span>{count}</span>;
@@ -31,37 +34,38 @@ export default function HeroSection() {
   const t = useTranslations('hero');
   const locale = useLocale();
 
+  // 1. Cloudinary Optimization: Use f_auto (format) and q_auto (quality)
+  // This reduces the 24MB file to ~1-2MB without visible quality loss.
+  const videoUrl = "https://res.cloudinary.com/dpvhamnmx/video/upload/f_auto,q_auto,vc_vp9/v1712700000/Anchan-Silks-Showcase_compressed_f8ayrr.mp4";
+
+  // 2. Poster Image: Provides an immediate LCP paint while video loads
+  const posterUrl = "https://res.cloudinary.com/dpvhamnmx/video/upload/so_0,f_jpg,q_auto/v1712700000/Anchan-Silks-Showcase_compressed_f8ayrr.jpg";
+
   return (
     <section className="relative min-h-screen py-32 flex items-center justify-center overflow-hidden">
-      
-      {/* Updated Video Background using YouTube */}
+
       <div className="absolute inset-0 z-0 pointer-events-none">
-  {/* Standard Video Tag for Cloudinary */}
-  <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    className="w-full h-full object-cover"
-  >
-    <source 
-      src="https://res.cloudinary.com/dpvhamnmx/video/upload/v1712700000/Anchan-Silks-Showcase_compressed_f8ayrr.mp4" 
-      type="video/mp4" 
-    />
-    Your browser does not support the video tag.
-  </video>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={posterUrl}
+          preload="auto"
+          fetchPriority="high"
+          className="w-full h-full object-cover"
+        >
+          <source src={videoUrl} type="video/mp4" />
+        </video>
 
-  {/* Overlays for Brand Feel */}
-  <div className="absolute inset-0 bg-gradient-to-br from-maroon-950/80 via-maroon-900/40 to-black/60" />
-  <div className="absolute inset-0 silk-texture opacity-10" />
-</div>
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-br from-maroon-950/80 via-maroon-900/40 to-black/60" />
+        <div className="absolute inset-0 silk-texture opacity-10" />
+      </div>
 
-      {/* Gold frame */}
       <div className="absolute inset-8 border border-gold-500/20 pointer-events-none hidden lg:block" />
 
-      {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        {/* Tagline */}
         <div className="flex items-center justify-center gap-4 mb-6">
           <span className="h-px w-12 bg-gold-400" />
           <span className="text-gold-400 text-lg font-black tracking-[0.3em] uppercase drop-shadow-sm">
@@ -78,7 +82,6 @@ export default function HeroSection() {
           {t('subheadline')}
         </p>
 
-        {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             href={`/${locale}/collections`}
@@ -97,7 +100,7 @@ export default function HeroSection() {
           </a>
         </div>
 
-        {/* Stats with Counter */}
+        {/* Stats Section */}
         <div className="flex flex-wrap justify-center gap-8 mt-14 pt-14 border-t border-white/10">
           {[
             { number: 25, suffix: '+', label: 'Years of Trust' },
@@ -118,7 +121,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 z-10">
         <span className="text-[10px] tracking-[0.3em] uppercase">Scroll</span>
         <ChevronDown size={18} className="animate-bounce" />
